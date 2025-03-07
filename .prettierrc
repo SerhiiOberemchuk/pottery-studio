@@ -1,0 +1,17 @@
+{
+  "tailwindPreserveDuplicates": false,
+  "tailwindFunctions": ["clsx"],
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "./app/globals.css",
+  "overrides": [
+    {
+      "files": ["*.tsx"],
+      "options": {
+        "parser": "typescript"
+      }
+    }
+  ]
+}

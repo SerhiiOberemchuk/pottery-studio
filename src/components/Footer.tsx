@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-function Footer({}: Props) {
+function Footer() {
   return <footer className=" md:w-1">Footer</footer>;
 }
 

@@ -5,13 +5,13 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
 const openSans = Open_Sans({
-  variable: "--font-open-sans",
+  variable: "--font-family",
   subsets: ["latin"],
 });
 
 const fanwoodText = Fanwood_Text({
   weight: "400",
-  variable: "--font-fanwood-text",
+  variable: "--font-second-family",
   subsets: ["latin"],
 });
 

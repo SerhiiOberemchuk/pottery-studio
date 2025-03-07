@@ -22,17 +22,45 @@
   --violet-light: #b5aeff;
   --violet: #5243ff;
   --green: #069425;
-  /* --font-family: "Open Sans", sans-serif;
+  --font-family: "Open Sans", sans-serif;
   --second-family: "Fanwood Text", sans-serif;
-  --third-family: "Helvetica", sans-serif; */
+  --third-family: "Helvetica", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-0: var(--background-0);
+  --color-background-1: var(--background-1);
+  --color-background-2: var(--background-2);
+  --color-black: var(--black);
+  --color-brown-light-1: var(--brown-light-1);
+  --color-brown: var(--brown);
+  --color-brown-dark: var(--brown-dark);
+  --color-white: var(--white);
+  --color-grey: var(--grey);
+  --color-grey-dark: var(--grey-dark);
+  --color-grey-light: var(--grey-light);
+  --color-stroke: var(--stroke);
+  --color-grey-72: var(--grey-72);
+  --color-grey-dark-60: var(--grey-dark-60);
+  --color-grey-20: var(--grey-20);
+  --color-red: var(--red);
+  --color-violet-light: var(--violet-light);
+  --color-violet: var(--violet);
+  --color-green: var(--green);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-open-sans);
-  --font-fanwood: var(--font-fanwood-text);
+  --font-family: var(--font-family);
+  --font-second-family: var(--second-family);
+  --font-third-family: var(--third-family);
+  --container-3xl: padding: 100px 5rem;
+  --container-8xl: padding: 150px 7rem;
 }
+
+/* @layer utilities {
+  .container {
+    padding: 2rem 5rem;
+  }
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -42,7 +70,7 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--white);
+  color: var(--grey-dark);
+  font-family: var(--font-family);
 }
