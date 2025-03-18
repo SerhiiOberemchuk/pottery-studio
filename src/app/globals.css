@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -22,16 +22,22 @@
   --violet-light: #b5aeff;
   --violet: #5243ff;
   --green: #069425;
-  --font-family: "Open Sans", sans-serif;
-  --second-family: "Fanwood Text", sans-serif;
-  --third-family: "Helvetica", sans-serif;
+  --font-family: 'Helvetica', sans-serif;
+  --second-family: 'Open Sans Hebrew', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-background-0: var(--background-0);
-  --color-background-1: var(--background-1);
-  --color-background-2: var(--background-2);
+  --color-foreground: var(--foreground);
+  --font-open-sans: var(--font-open-sans);
+  --font-mono: var(--font-geist-mono);
   --color-black: var(--black);
   --color-brown-light-1: var(--brown-light-1);
   --color-brown: var(--brown);
@@ -41,6 +47,9 @@
   --color-grey-dark: var(--grey-dark);
   --color-grey-light: var(--grey-light);
   --color-stroke: var(--stroke);
+  --color-background-2: var(--background-2);
+  --color-background-1: var(--background-1);
+  --color-background-0: var(--background-0);
   --color-grey-72: var(--grey-72);
   --color-grey-dark-60: var(--grey-dark-60);
   --color-grey-20: var(--grey-20);
@@ -48,29 +57,62 @@
   --color-violet-light: var(--violet-light);
   --color-violet: var(--violet);
   --color-green: var(--green);
-  --color-foreground: var(--foreground);
-  --font-family: var(--font-family);
-  --font-second-family: var(--second-family);
-  --font-third-family: var(--third-family);
-  --container-3xl: padding: 100px 5rem;
-  --container-8xl: padding: 150px 7rem;
-}
-
-/* @layer utilities {
-  .container {
-    padding: 2rem 5rem;
-  }
-} */
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --text-size-62: 3.875rem;
+  --text-size-44: 2.75rem;
+  --text-size-32: 2rem;
+  --leading-50: 3.125rem;
 }
 
 body {
-  background: var(--white);
-  color: var(--grey-dark);
-  font-family: var(--font-family);
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-open-sans), Helvetica, sans-serif;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: 100%;
+
+  @variant md {
+    padding-inline: 1.5rem;
+  }
+
+  @variant xl {
+    max-width: 80rem;
+    padding-inline: 5.625rem;
+  }
+}
+
+@utility body_2 {
+  font-family: var(--font-open-sans);
+}
+
+.body_2 {
+  font-size: 12px;
+  line-height: 1.14;
+  font-weight: 400;
+  color: var(--black);
+}
+
+@media (width>=768px) {
+  .body_2 {
+    font-size: 16px;
+  }
+}
+
+@utility big_btns {
+  font-family: var(--font-open-sans);
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 400;
+  color: var(--white);
+
+  @variant xl {
+    font-size: 14px;
+    line-height: 1.125rem;
+  }
+}
+.test {
+  color: var(--white);
 }

@@ -1,24 +1,27 @@
-import type { Metadata } from "next";
-import { Open_Sans, Fanwood_Text } from "next/font/google";
-import "./globals.css";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-
-const openSans = Open_Sans({
-  variable: "--font-family",
-  subsets: ["latin"],
-});
+import type { Metadata } from 'next';
+import { Fanwood_Text, Open_Sans } from 'next/font/google';
+import './globals.css';
+import Header from '@/Layouts/Header';
+import Footer from '@/Layouts/Footer';
 
 const fanwoodText = Fanwood_Text({
-  weight: "400",
-  variable: "--font-second-family",
-  subsets: ["latin"],
+  weight: ['400'],
+  variable: '--font-fanwood-text',
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+const openSans = Open_Sans({
+  variable: '--font-open-sans',
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "POTTERY STUDIO",
+  title: 'Pottery Studio',
   description:
-    "Welcome to our pottery studio, where creativity takes shape! Nestled in the heart of artistic expression, our studio is a haven for both beginners and seasoned potters alike.",
+    'Welcome to our pottery studio, where creativity takes shape! Nestled in the heart of artistic expression, our studio is a haven for both beginners and seasoned potters alike.',
+  icons: '/favicon.svg',
 };
 
 export default function RootLayout({
@@ -29,10 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${openSans.variable} ${fanwoodText.variable} antialiased`}
+        className={`${fanwoodText.variable} ${openSans.variable} antialiased`}
       >
         <Header />
-        <main>{children}</main> <Footer />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
