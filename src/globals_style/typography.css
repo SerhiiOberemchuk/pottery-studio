@@ -1,0 +1,148 @@
+.title {
+  font-family: var(--second-family);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-style: italic;
+}
+
+.title_big {
+  font-size: 2rem;
+  line-height: 2.75rem;
+}
+
+.subtitle {
+  font-style: italic;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
+
+.body_bold {
+  font-weight: bold;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
+
+.body_text_btns {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
+
+.subtitle_bold {
+  font-weight: bold;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.subtitle_2 {
+  font-family: var(--second-family);
+  font-style: italic;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.big_btns {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.crossed_title_2 {
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+}
+
+.body_2 {
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+}
+
+.crossed_title_3 {
+  font-style: italic;
+  font-size: 0.5rem;
+  line-height: 0.625rem;
+}
+
+.crossed_title {
+  font-size: 0.5rem;
+  line-height: 0.625rem;
+}
+
+.text_helper {
+  font-size: 0.5rem;
+  line-height: 0.625rem;
+}
+
+@media (width>= 48rem) {
+  .title_big {
+    font-size: 2.75rem;
+    line-height: 3.125rem;
+  }
+  .title {
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+  }
+}
+@media (width>= 80rem) {
+  .title_big {
+    font-size: 3.875rem;
+    line-height: 5rem;
+  }
+  .title {
+    font-size: 3.375rem;
+    line-height: 4.375rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.375rem;
+  }
+
+  .body_bold {
+    font-size: 1rem;
+    line-height: 1.375rem;
+  }
+
+  .body_text_btns {
+    font-size: 1rem;
+    line-height: 1.375rem;
+  }
+
+  .subtitle_bold {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+
+  .subtitle_2 {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+
+  .big_btns {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+
+  .crossed_title_2 {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .body_2 {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .crossed_title_3 {
+    font-size: 0.625rem;
+    line-height: 0.75rem;
+  }
+
+  .crossed_title {
+    font-size: 0.625rem;
+    line-height: 0.75rem;
+  }
+
+  .text_helper {
+    font-size: 0.625rem;
+    line-height: 0.75rem;
+  }
+}

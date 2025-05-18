@@ -14,7 +14,7 @@ export default function Home() {
           priority
         />
         <ol>
-          <li>
+          <li className="title_big">
             Get started by editing <code>src/app/page.tsx</code>.
           </li>
           <li>Save and see your changes instantly.</li>
