@@ -5,8 +5,8 @@ import LinkPrimary from "@/components/ui/LinkPrimary/LinkPrimary";
 function HeroSection() {
   return (
     <section className={styles.section}>
-      <div className={`${styles.container} ${styles.flex_container}`}>
-        <p className=" subtitle_2 black">
+      <div className={`container ${styles.flex_container}`}>
+        <p className="subtitle_2 black">
           Our classes and courses are friendly for everyone.
         </p>
         <div className={styles.hero_image_container}>
