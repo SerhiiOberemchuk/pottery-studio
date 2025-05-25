@@ -1,13 +1,14 @@
-
+"use client";
 import styles from "./header.module.css";
 
 import Logo from "@/components/common/Logo/Logo";
 import NavMenu from "@/components/common/NavMenu/NavMenu";
 import UserActions from "@/components/common/UserActions/UserActions";
 import NavButton from "@/components/common/NavButton/NavButton";
+import { useState } from "react";
 
 function Header() {
-  const 
+  const [active, setActive] = useState<boolean>(false);
   return (
     <header className={styles.header}>
       <div className="container">
@@ -15,8 +16,11 @@ function Header() {
           <Logo type="header" />
           <NavMenu type="header" />
           <UserActions />
-          <NavButton />
-          <NavMenu type="mobilemenu"/>
+          <NavButton
+            active={active}
+            onClick={() => setActive((prev) => !prev)}
+          />
+          <NavMenu type="mobilemenu" className={active ? "active" : ""} />
         </div>
       </div>
     </header>
@@ -24,9 +28,3 @@ function Header() {
 }
 
 export default Header;
-
-// function Header() {
-//   return <div className={styles.header}>Header Фдуч</div>;
-// }
-
-// export default Header;

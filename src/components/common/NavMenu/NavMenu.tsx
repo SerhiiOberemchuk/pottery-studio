@@ -9,9 +9,9 @@ type Props = {
   onClick?: () => void;
 };
 
-function NavMenu({ className, type, onClick }: Props) {
+function NavMenu({ className = "", type, onClick }: Props) {
   return (
-    <nav className={clsx(styles.menu, styles[type], className)}>
+    <nav className={clsx(styles.menu, styles[type], styles[className])}>
       <ul className={clsx(styles.menu__list, styles[type])}>
         <NavLink onClick={onClick} href="/" type={type} linkName="HOME" />
         <NavLink onClick={onClick} href="/about" type={type} linkName="ABOUT" />

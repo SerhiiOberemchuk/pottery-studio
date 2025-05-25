@@ -1,10 +1,10 @@
 .menu__btn {
-  margin-left: 20px;
+  margin-left: 1.25rem;
 }
 
 @media (width>= 20rem) {
   .menu__btn {
-    margin-left: 24px;
+    margin-left: 1.5rem;
   }
 }
 @media (width>= 48rem) {
