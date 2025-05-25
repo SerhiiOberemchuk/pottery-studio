@@ -9,3 +9,9 @@
     padding-inline: 1.5rem;
   }
 }
+
+@media (width>=80rem) {
+  .container {
+    padding-inline: 5.625rem;
+  }
+}
