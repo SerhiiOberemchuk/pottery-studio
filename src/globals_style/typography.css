@@ -6,6 +6,7 @@
 }
 
 .title_big {
+  font-weight: normal;
   font-size: 2rem;
   line-height: 2.75rem;
 }
@@ -23,6 +24,7 @@
 }
 
 .body_text_btns {
+  font-weight: normal;
   font-size: 0.875rem;
   line-height: 1.125rem;
 }
@@ -34,6 +36,7 @@
 }
 
 .subtitle_2 {
+  font-weight: normal;
   font-family: var(--second-family);
   font-style: italic;
   font-size: 0.75rem;
