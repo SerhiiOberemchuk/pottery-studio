@@ -1,5 +1,11 @@
 .container {
+  width: 100%;
   max-width: 1146;
-  padding: 0 24px;
+  padding: 0 1rem;
   margin: 0 auto;
+}
+@media (width>=48rem) {
+  .container {
+    padding-inline: 1.5rem;
+  }
 }
