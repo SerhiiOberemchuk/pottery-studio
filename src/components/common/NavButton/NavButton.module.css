@@ -1,0 +1,14 @@
+.menu__btn {
+  margin-left: 20px;
+}
+
+@media (width>= 20rem) {
+  .menu__btn {
+    margin-left: 24px;
+  }
+}
+@media (width>= 48rem) {
+  .menu__btn {
+    display: none;
+  }
+}
