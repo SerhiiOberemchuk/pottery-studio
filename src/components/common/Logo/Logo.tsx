@@ -14,6 +14,7 @@ function Logo({ className, type }: Props) {
         width={72}
         height={72}
         alt="Посилання на головну сторінку"
+        priority
       />
     </Link>
   );

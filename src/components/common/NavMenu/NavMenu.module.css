@@ -2,6 +2,9 @@
   &.header {
     display: none;
   }
+  &.mobilemenu {
+    border:1px solid var(--background-2)
+  }
 
   &.mobilemenu {
     display: block;
