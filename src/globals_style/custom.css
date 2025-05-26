@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  max-width: 80rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+@media (width>=48rem) {
+  .container {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (width>=80rem) {
+  .container {
+    padding-inline: 5.625rem;
+  }
+}
