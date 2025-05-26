@@ -1,7 +1,10 @@
+"use client";
 import clsx from "clsx";
 import styles from "./NavMenu.module.css";
 
 import Link from "next/link";
+
+import { usePathname } from "next/navigation";
 
 type Props = {
   className?: string;
@@ -48,12 +51,21 @@ type PropsLink = {
   linkName: string;
 } & Pick<Props, "type" | "onClick">;
 
-function NavLink({ href, linkName, type }: PropsLink) {
+function NavLink({ href, linkName, type, onClick }: PropsLink) {
+  const pathname = usePathname();
+  const isActiveLink = pathname === href;
+
   return (
     <li className={styles.menu__item}>
       <Link
         href={href}
-        className={clsx(styles.menu__link, styles[type], "big_btns")}
+        className={clsx(
+          styles.menu__link,
+          styles[type],
+          isActiveLink ? styles.active__link : "",
+          "big_btns"
+        )}
+        onClick={onClick}
       >
         {linkName}
       </Link>

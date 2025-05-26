@@ -1,5 +1,6 @@
 .menu__btn {
   margin-left: 1.25rem;
+  z-index: 50;
 }
 
 @media (width>= 20rem) {
