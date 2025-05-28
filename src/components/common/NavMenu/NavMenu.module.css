@@ -100,4 +100,14 @@
   .menu.mobilemenu {
     display: none;
   }
+  .menu__list {
+    &.footer {
+      gap: 0.625rem;
+    }
+  }
+  .menu__link {
+    &.footer {
+      text-align: left;
+    }
+  }
 }

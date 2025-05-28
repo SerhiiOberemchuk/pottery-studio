@@ -9,8 +9,8 @@
     margin-left: 1.5rem;
   }
 }
-@media (width>= 48rem) {
+/* @media (width>= 48rem) {
   .menu__btn {
     display: none;
   }
-}
+} */
