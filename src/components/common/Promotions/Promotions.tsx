@@ -2,12 +2,15 @@
 import styles from "./Promotions.module.css";
 
 import Input from "../../shared/form/input/Input";
+import Button from "@/components/shared/button/Button";
 import { useForm } from "react-hook-form";
+import clsx from "clsx";
 
 function Promotions() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -18,29 +21,29 @@ function Promotions() {
 
   const onSubmit = (data: { email: string }) => {
     console.log("email", data);
+    reset();
   };
   return (
-    <div className="promotions__form">
-      <div className="form">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="form__inner">
-            <Input
-              key="email"
-              id="email"
-              name="email"
-              placeholder={"Написати повідомлення"}
-              variant="footer"
-              type="text"
-              register={register}
-              className=""
-              errors={errors}
-            />
-            {/* <Button type="submit">
-              <img src={SendMessageIcon} alt="send message" />
-            </Button> */}
-          </div>
-        </form>
-      </div>
+    <div className={clsx(styles.promotions__form)}>
+      <h4 className={clsx(styles.form__title)}>
+        Sign up to receive updates and promotions
+      </h4>
+      <form className={clsx(styles.form)} onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          key="email"
+          id="email"
+          name="email"
+          placeholder={"Написати повідомлення"}
+          variant="footer"
+          type="text"
+          register={register}
+          className=""
+          errors={errors}
+        />
+        <Button type="submit" variant="footer">
+          submit
+        </Button>
+      </form>
     </div>
   );
 }

@@ -1,0 +1,13 @@
+.promotions__form {
+}
+.form__title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.form {
+  display: flex;
+}

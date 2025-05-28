@@ -1,3 +1,11 @@
 .footer {
-  background: green;
+  background: #413a32;
+}
+.footer___inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-block: 24px;
+  /* justify-content: center; */
+  align-items: center;
 }

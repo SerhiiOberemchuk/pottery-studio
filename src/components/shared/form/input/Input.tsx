@@ -17,7 +17,7 @@ export type InputProps = {
   errors: FieldErrors;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const Input = (props: InputProps) => {
+function Input(props: InputProps) {
   const {
     id,
     name,
@@ -35,7 +35,7 @@ const Input = (props: InputProps) => {
   const error = errors[name];
 
   return (
-    <div className={clsx(styles.inputWrapper, className)}>
+    <div className={clsx(styles.inputWrapper)}>
       {label && <label htmlFor={id}>{label}</label>}
       <input
         id={id}
@@ -58,6 +58,6 @@ const Input = (props: InputProps) => {
       )}
     </div>
   );
-};
+}
 
 export default Input;
