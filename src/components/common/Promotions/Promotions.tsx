@@ -3,7 +3,7 @@ import styles from "./Promotions.module.css";
 
 import Input from "../../shared/form/input/Input";
 import Button from "@/components/shared/button/Button";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import clsx from "clsx";
 
 function Promotions() {
@@ -19,7 +19,7 @@ function Promotions() {
     mode: "onBlur",
   });
 
-  const onSubmit = (data: { email: string }) => {
+  const onSubmit: SubmitHandler<{ email: string }> = (data) => {
     console.log("email", data);
     reset();
   };
