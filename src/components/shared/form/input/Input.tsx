@@ -1,29 +1,32 @@
-import "./Input.module.css";
+import styles from "./Input.module.css";
+
+import clsx from "clsx";
 
 import { InputHTMLAttributes } from "react";
 import { UseFormRegister, FieldErrors } from "react-hook-form";
 
 export type InputProps = {
+  id?: string;
   name: string;
   label?: string;
+  variant?: "default" | "search" | "footer";
   placeholder: string;
-  className?: string;
-  register: UseFormRegister<any>;
-  errors: FieldErrors;
   type?: string;
-  value?: string;
-  id?: string;
+  register: UseFormRegister<any>;
+  className?: string;
+  errors: FieldErrors;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const Input = (props: InputProps) => {
   const {
+    id,
     name,
     label,
     placeholder,
+    variant = "default",
     type = "text",
-    value,
     register,
-    id,
+    className,
     errors,
     disabled,
     ...attrs
@@ -32,27 +35,27 @@ const Input = (props: InputProps) => {
   const error = errors[name];
 
   return (
-    <div className="inputWrapper">
+    <div className={clsx(styles.inputWrapper, className)}>
       {label && <label htmlFor={id}>{label}</label>}
       <input
         id={id}
-        className="input"
+        className={clsx(styles.input, styles[variant], className)}
         placeholder={placeholder}
         type={type}
-        {...(value !== undefined ? { value } : {})}
         {...register(name)}
         aria-describedby={`inputError-${name}`}
         disabled={disabled}
         {...attrs}
       />
       {error && (
-          <span
-            id={`inputError-${name}`}
-            className="inputError"
-          >
-            {t(String(error?.message))}
-          </span>
-        )}
+        <span
+          id={`inputError-${name}`}
+          className={clsx(styles.inputError, "text_helper")}
+        >
+          {String(error?.message)}
+          {/* The field is required * */}
+        </span>
+      )}
     </div>
   );
 };

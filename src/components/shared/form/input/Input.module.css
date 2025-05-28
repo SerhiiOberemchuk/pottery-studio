@@ -1,10 +1,29 @@
-y.input__wrapper{
+.inputWrapper {
+  position: relative;
   display: flex;
+  flex-direction: column;
   width: 100%;
 }
 .input {
+  /* border: 1px solid red; */
   display: flex;
   width: 100%;
   font-size: 16px;
-  padding-inline: 10px;
+  padding: 12px 20px;
+  color: var(--black);
+  &.footer {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+    &::placeholder {
+      color: var(--grey-dark);
+    }
+  }
+}
+.inputError {
+  position: absolute;
+  left: 0;
+  top: 110%;
+  color: var(--red);
 }

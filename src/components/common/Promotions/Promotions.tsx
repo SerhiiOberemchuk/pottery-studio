@@ -25,11 +25,13 @@ function Promotions() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form__inner">
             <Input
-              register={register}
               key="email"
+              id="email"
               name="email"
               placeholder={"Написати повідомлення"}
+              variant="footer"
               type="text"
+              register={register}
               className=""
               errors={errors}
             />
