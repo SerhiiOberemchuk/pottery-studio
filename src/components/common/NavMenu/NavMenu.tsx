@@ -1,7 +1,11 @@
+"use client";
 import clsx from "clsx";
 import styles from "./NavMenu.module.css";
 
 import Link from "next/link";
+
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 type Props = {
   className?: string;
@@ -9,33 +13,38 @@ type Props = {
   onClick?: () => void;
 };
 
+const linksNavMenu = [
+  { href: "/", linkName: "HOME" },
+  { href: "/about", linkName: "ABOUT" },
+  { href: "/shop", linkName: "SHOP" },
+  { href: "/book_classes", linkName: "BOOK CLASSES" },
+  { href: "/open_hours", linkName: "OPEN HOURS" },
+  { href: "/contacts", linkName: "CONTACTS" },
+];
+
 function NavMenu({ className = "", type, onClick }: Props) {
+  const pathnameFromHook = usePathname();
+  const [mounted, setMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const pathname: string | null = mounted ? pathnameFromHook : null;
+
   return (
     <nav className={clsx(styles.menu, styles[type], styles[className])}>
       <ul className={clsx(styles.menu__list, styles[type])}>
-        <NavLink onClick={onClick} href="/" type={type} linkName="HOME" />
-        <NavLink onClick={onClick} href="/about" type={type} linkName="ABOUT" />
-
-        <NavLink onClick={onClick} href="/shop" type={type} linkName="SHOP" />
-
-        <NavLink
-          onClick={onClick}
-          href="/book_classes"
-          type={type}
-          linkName="BOOK CLASSES"
-        />
-        <NavLink
-          onClick={onClick}
-          href="/open_hours"
-          type={type}
-          linkName="OPEN HOURS"
-        />
-        <NavLink
-          onClick={onClick}
-          href="/contacts"
-          type={type}
-          linkName="CONTACTS"
-        />
+        {linksNavMenu.map((link) => (
+          <NavLink
+            key={link.href}
+            onClick={onClick}
+            href={link.href}
+            type={type}
+            linkName={link.linkName}
+            pathname={pathname}
+          />
+        ))}
       </ul>
     </nav>
   );
@@ -46,14 +55,27 @@ export default NavMenu;
 type PropsLink = {
   href: string;
   linkName: string;
-} & Pick<Props, "type" | "onClick">;
+  type: "header" | "mobilemenu" | "footer";
+  onClick?: () => void;
+  pathname: string | null;
+};
 
-function NavLink({ href, linkName, type }: PropsLink) {
+function NavLink({ href, linkName, type, onClick, pathname }: PropsLink) {
+  const isActive: boolean = pathname === href;
+
+  if (type === "mobilemenu" && href === "/") return null;
+
   return (
     <li className={styles.menu__item}>
       <Link
         href={href}
-        className={clsx(styles.menu__link, styles[type], "big_btns")}
+        className={clsx(
+          styles.menu__link,
+          styles[type],
+          isActive && styles.active__link,
+          "big_btns"
+        )}
+        onClick={onClick}
       >
         {linkName}
       </Link>

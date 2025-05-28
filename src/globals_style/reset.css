@@ -1,9 +1,9 @@
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: var(--black);
     --foreground: var(--white);
   }
-}
+} */
 
 html,
 body {
@@ -14,6 +14,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
+  margin-top: 90px;
   font-weight: normal;
   font-family: var(--font-family), sans-serif;
   -webkit-font-smoothing: antialiased;
