@@ -12,21 +12,22 @@ function HeroSection() {
         <div className={styles.hero_image_container}>
           <div>
             <Image
-              width={60}
-              height={88}
-              src={"/hero-section/hero_little_foto_default.webp"}
+              width={158}
+              height={196}
+              src={"/hero-section/little-foto.webp"}
               alt="hero_little_foto_default"
-              className="hero_little_foto_default"
+              className={styles.little_foto}
             />
             <h2 className="subtitle_2 black ">
               We are a Studio offering Pottery and Classes
             </h2>
           </div>
           <Image
-            src={"/hero-section/hero_big_foto_default.webp"}
-            height={280}
-            width={212}
+            src={"/hero-section/hero_image.webp"}
+            height={656}
+            width={718}
             alt="hero_image"
+            className={styles.big_foto}
           />
         </div>
         <h1 className="title_big brown_dark">EXPLORE THE ANCIENT ART</h1>

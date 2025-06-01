@@ -1,8 +1,20 @@
 .link_primary {
   padding-block: 0.75rem;
   padding-inline: 2.25rem;
-  max-width: fit-content;
+  /* max-width: fit-content; */
   margin-inline: auto;
+  border: 1px solid var(--stroke);
+  width: 100%;
+  text-align: center;
+  &:hover {
+    background-color: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+  }
+  &:active {
+    background-color: var(--grey-dark);
+    border-color: var(--grey-dark);
+  }
 }
 
 @media (width>= 48rem) {
@@ -10,4 +22,10 @@
     padding-block: 0.75rem;
     padding-inline: 2.5rem;
   }
+}
+
+.disabled {
+  background-color: var(--grey);
+  border-color: var(--grey);
+  color: var(--grey-light);
 }

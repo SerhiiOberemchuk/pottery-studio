@@ -26,7 +26,7 @@
 .body_text_btns {
   font-weight: normal;
   font-size: 0.875rem;
-  line-height: 1.125rem;
+  line-height: 1.29;
 }
 
 .subtitle_bold {
@@ -83,7 +83,12 @@
     font-size: 2.25rem;
     line-height: 2.875rem;
   }
+  .body_text_btns {
+    font-size: 1rem;
+    line-height: 1.375rem;
+  }
 }
+
 @media (width>= 80rem) {
   .title_big {
     font-size: 3.875rem;
@@ -100,11 +105,6 @@
   }
 
   .body_bold {
-    font-size: 1rem;
-    line-height: 1.375rem;
-  }
-
-  .body_text_btns {
     font-size: 1rem;
     line-height: 1.375rem;
   }
