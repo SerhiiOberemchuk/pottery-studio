@@ -39,6 +39,29 @@
   max-width: 13.25rem;
   height: auto;
 }
+.text_with_link_container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 1.25rem;
+  justify-content: end;
+}
+.hiden_from_tablet {
+  @media (width>=48rem) {
+    display: none;
+  }
+}
+.visible_from_tablet {
+  display: none;
+  @media (width>=48rem) {
+    display: flex;
+  }
+}
+.litle_foto_container {
+  display: flex;
+  justify-items: end;
+  gap: 1.5rem;
+}
 @media (width>=48rem) {
   .little_foto {
     max-width: 6.25rem;
@@ -48,6 +71,9 @@
   }
   .section {
     padding-top: 0;
+  }
+  .text_with_link_container {
+    min-width: 11.625rem;
   }
 }
 @media (width>=90rem) {
