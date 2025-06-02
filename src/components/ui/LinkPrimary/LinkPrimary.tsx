@@ -1,8 +1,12 @@
 import Link from "next/link";
-import styles from "./link-primary.module.css";
+import styles from "./LinkPrimary.module.css";
 import clsx from "clsx";
 
-type Props = { href: string; className?: string; children?: React.ReactNode };
+type Props = {
+  href: string;
+  className?: string;
+  children?: React.ReactNode;
+};
 
 function LinkPrimary({ href, children, className }: Props) {
   return (
