@@ -60,24 +60,24 @@
 .litle_foto_container {
   display: flex;
   justify-items: end;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 .titles_container {
   display: none;
 }
+
 @media (width>=48rem) {
   .little_foto {
     max-width: 6.25rem;
   }
   .big_foto {
     max-width: 27.125rem;
+    margin-right: calc(var(--container-side-padding-tablet) * -1);
   }
   .section {
     padding-top: 0;
   }
-  .text_with_link_container {
-    min-width: 11.625rem;
-  }
+
   .subtitle_top {
     margin-left: auto;
     max-width: 6.25rem;
@@ -95,6 +95,7 @@
   }
   .big_foto {
     max-width: 44.875rem;
+    margin-right: calc(-1 * var(--container-side-padding-desktop));
   }
   .titles_container {
     gap: 2.75rem;
