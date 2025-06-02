@@ -4,15 +4,5 @@ import style from "./SubtitleSection.module.css";
 type Props = { children: React.ReactNode; className?: string };
 
 export default function SubtitleSection({ children, className }: Props) {
-  return (
-    <p
-      className={clsx(
-        // "body_text_btns",
-        style.subtitle,
-        className
-      )}
-    >
-      <span></span> {children}
-    </p>
-  );
+  return <p className={clsx(style.subtitle, className)}>{children}</p>;
 }
