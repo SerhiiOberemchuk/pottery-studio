@@ -7,12 +7,11 @@ function HeroSection() {
   return (
     <section className={styles.section}>
       <div className={`container ${styles.flex_container}`}>
-        <p className="subtitle_2 black">
-          Our classes and courses are friendly for everyone.
-        </p>
+        <SubtitleTop visible="mobile" />
         <div className={styles.hero_image_container}>
           <div>
-            <div>
+            <div className={styles.titles_container}>
+              <SubtitleTop visible="tablet" />
               <Title visible="tablet" />
             </div>
             <div className={styles.litle_foto_container}>
@@ -47,7 +46,10 @@ function HeroSection() {
 }
 
 export default HeroSection;
-function TextWithLink({ visible }: { visible: "mobile" | "tablet" }) {
+
+type Visible = { visible: "mobile" | "tablet" };
+
+function TextWithLink({ visible }: Visible) {
   return (
     <div
       className={clsx(
@@ -67,7 +69,7 @@ function TextWithLink({ visible }: { visible: "mobile" | "tablet" }) {
     </div>
   );
 }
-function Title({ visible }: { visible: "mobile" | "tablet" }) {
+function Title({ visible }: Visible) {
   return (
     <h1
       className={clsx(
@@ -79,5 +81,20 @@ function Title({ visible }: { visible: "mobile" | "tablet" }) {
     >
       EXPLORE THE ANCIENT ART
     </h1>
+  );
+}
+function SubtitleTop({ visible }: Visible) {
+  return (
+    <p
+      className={clsx(
+        "subtitle_2 black",
+        styles.subtitle_top,
+        visible === "mobile"
+          ? styles.hiden_from_tablet
+          : styles.visible_from_tablet
+      )}
+    >
+      Our classes and courses are friendly for everyone.
+    </p>
   );
 }
