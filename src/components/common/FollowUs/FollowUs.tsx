@@ -1,6 +1,5 @@
 import styles from "./FollowUs.module.css";
 
-import LinkSocial from "@/components/ui/LinkSocial/LinkSocial";
 import ButtonOrLink from "@/components/shared/button/ButtonOrLink";
 import Image from "next/image";
 
@@ -25,8 +24,6 @@ function FollowUs() {
                 alt={elem.alt}
               />
             </ButtonOrLink>
-
-            {/* <LinkSocial href={elem.href} src={elem.src} alt={elem.alt} /> */}
           </li>
         ))}
       </ul>

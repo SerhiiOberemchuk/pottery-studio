@@ -1,16 +1,16 @@
 import styles from "./Сopyright.module.css";
 import clsx from "clsx";
-import LinkSocial from "@/components/ui/LinkSocial/LinkSocial";
+import ButtonOrLink from "@/components/shared/button/ButtonOrLink";
 
 function Copyright() {
   const currentYear: number = new Date().getFullYear();
   return (
     <div className={clsx(styles.copyright)}>
-      <LinkSocial href="#" alt="">
+      <ButtonOrLink href="#" aria-label="All rights reserved">
         <p className={clsx(styles.copyright_text, "body_2")}>
           {currentYear} © All rights reserved
         </p>
-      </LinkSocial>
+      </ButtonOrLink>
     </div>
   );
 }
