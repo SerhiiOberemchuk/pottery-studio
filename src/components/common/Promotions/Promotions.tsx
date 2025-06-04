@@ -3,6 +3,7 @@ import styles from "./Promotions.module.css";
 
 import Input from "../../shared/form/input/Input";
 import Button from "@/components/shared/button/Button";
+import ButtonOrLink from "@/components/shared/button/ButtonOrLink";
 import { useForm, SubmitHandler } from "react-hook-form";
 import clsx from "clsx";
 
@@ -40,9 +41,9 @@ function Promotions() {
           className=""
           errors={errors}
         />
-        <Button type="submit" variant="footer">
+        <ButtonOrLink type="submit" variant="footer">
           submit
-        </Button>
+        </ButtonOrLink>
       </form>
     </div>
   );

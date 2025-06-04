@@ -34,9 +34,6 @@ function ActionsButton({ src, alt }: PropsLink) {
       <ButtonOrLink type="button">
         <Image src={src} width={36} height={36} alt={alt} />
       </ButtonOrLink>
-      {/* <button type="button">
-        <Image src={src} width={36} height={36} alt={alt} />
-      </button> */}
     </li>
   );
 }
