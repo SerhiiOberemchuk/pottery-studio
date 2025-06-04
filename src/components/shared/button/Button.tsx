@@ -9,7 +9,6 @@ export type ButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 function Button({
-  type = "button",
   children,
   disabled,
   variant = "default",
@@ -18,7 +17,6 @@ function Button({
   return (
     <button
       className={clsx(styles.btn, styles[variant])}
-      type={type}
       disabled={disabled}
       {...attrs}
     >

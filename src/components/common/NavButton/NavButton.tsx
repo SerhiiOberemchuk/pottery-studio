@@ -10,7 +10,7 @@ type Props = {
 
 function NavButton({ active, onClick }: Props) {
   return (
-    <button className={styles.menu__btn} onClick={onClick}>
+    <button className={styles.menu_btn} onClick={onClick}>
       <Image
         src={`./icon/${active ? "btn_close.svg" : "btn_menu.svg"}`}
         width={40}

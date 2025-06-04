@@ -2,7 +2,7 @@
   margin-left: auto;
 }
 
-.userActions__list {
+.userActions_list {
   display: flex;
   justify-content: center;
   gap: 1rem;

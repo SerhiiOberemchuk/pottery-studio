@@ -2,7 +2,7 @@ function OpenHours() {
   return (
     <section className="about">
       <div className="container">
-        <div className="about__inner">Open Hours</div>
+        <div className="about_inner">Open Hours</div>
       </div>
     </section>
   );
