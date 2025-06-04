@@ -11,26 +11,26 @@ function Footer() {
   return (
     <footer className={clsx(styles.footer)}>
       <div className="container">
-        <div className={clsx(styles.footer___inner)}>
-          <div className={clsx(styles.footer___logo)}>
+        <div className={clsx(styles.footer_inner)}>
+          <div className={clsx(styles.footer_logo)}>
             <Logo type="footer" />
-            <div className={clsx(styles.footer___big)}>
+            <div className={clsx(styles.footer_big)}>
               <Copyright />
             </div>
           </div>
-          <div className={clsx(styles.footer___big)}>
+          <div className={clsx(styles.footer_big)}>
             <NavMenu type="footer" />
           </div>
 
-          <div className={clsx(styles.footer___medium)}>
+          <div className={clsx(styles.footer_medium)}>
             <Promotions />
-            <div className={clsx(styles.footer___small)}>
+            <div className={clsx(styles.footer_small)}>
               <NavMenu type="footer" />
             </div>
             <FollowUs />
           </div>
 
-          <div className={clsx(styles.footer___small)}>
+          <div className={clsx(styles.footer_small)}>
             <Copyright />
           </div>
         </div>

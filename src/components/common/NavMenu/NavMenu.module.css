@@ -28,7 +28,7 @@
   }
 }
 
-.menu__list {
+.menu_list {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -47,7 +47,7 @@
   }
 }
 
-.menu__link {
+.menu_link {
   font-family: "Open Sans", sans-serif;
   color: var(--black);
   text-transform: uppercase;
@@ -66,7 +66,7 @@
 
   &.header,
   &.mobilemenu {
-    &.active__link {
+    &.active_link {
       font-family: var(--third-family);
       font-weight: 700;
       font-size: 12px;
@@ -100,12 +100,12 @@
   .menu.mobilemenu {
     display: none;
   }
-  .menu__list {
+  .menu_list {
     &.footer {
       gap: 0.625rem;
     }
   }
-  .menu__link {
+  .menu_link {
     &.footer {
       text-align: left;
     }

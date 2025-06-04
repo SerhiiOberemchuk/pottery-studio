@@ -11,10 +11,10 @@ const socialsLinks = [
 function FollowUs() {
   return (
     <div className={styles.followUs}>
-      <h5 className={styles.followUs__title}>Follow us on</h5>
-      <ul className={styles.followUs__list}>
+      <h5 className={styles.followUs_title}>Follow us on</h5>
+      <ul className={styles.followUs_list}>
         {socialsLinks.map((elem, index) => (
-          <li key={index} className={styles.followUs__item}>
+          <li key={index} className={styles.followUs_item}>
             <LinkSocial href={elem.href} src={elem.src} alt={elem.alt} />
           </li>
         ))}

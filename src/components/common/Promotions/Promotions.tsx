@@ -24,8 +24,8 @@ function Promotions() {
     reset();
   };
   return (
-    <div className={clsx(styles.promotions__form)}>
-      <h4 className={clsx(styles.form__title)}>
+    <div className={clsx(styles.promotions_form)}>
+      <h4 className={clsx(styles.form_title)}>
         Sign up to receive updates and promotions
       </h4>
       <form className={clsx(styles.form)} onSubmit={handleSubmit(onSubmit)}>

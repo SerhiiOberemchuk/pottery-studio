@@ -7,7 +7,7 @@ function Copyright() {
   return (
     <div className={clsx(styles.copyright)}>
       <LinkSocial href="#" alt="">
-        <p className={clsx(styles.copyright__text, "body_2")}>
+        <p className={clsx(styles.copyright_text, "body_2")}>
           {currentYear} © All rights reserved
         </p>
       </LinkSocial>

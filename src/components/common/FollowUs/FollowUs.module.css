@@ -4,12 +4,12 @@
   align-items: center;
   justify-content: center;
 }
-.followUs__title {
+.followUs_title {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 133%;
 }
-.followUs__list {
+.followUs_list {
   display: flex;
   gap: 0.25rem;
 }
