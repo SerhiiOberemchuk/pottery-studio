@@ -2,6 +2,7 @@ import clsx from "clsx";
 import styles from "./UserActions.module.css";
 
 import Image from "next/image";
+import ButtonOrLink from "@/components/shared/button/ButtonOrLink";
 
 type Props = {
   className?: string;
@@ -30,9 +31,12 @@ type PropsLink = {
 function ActionsButton({ src, alt }: PropsLink) {
   return (
     <li className={styles.userActions_item}>
-      <button type="button">
+      <ButtonOrLink type="button">
         <Image src={src} width={36} height={36} alt={alt} />
-      </button>
+      </ButtonOrLink>
+      {/* <button type="button">
+        <Image src={src} width={36} height={36} alt={alt} />
+      </button> */}
     </li>
   );
 }

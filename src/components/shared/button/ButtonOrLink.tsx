@@ -1,35 +1,32 @@
 import Link from "next/link";
 import clsx from "clsx";
 import styles from "./Button.module.css";
-import { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "react";
+import {
+  MouseEventHandler,
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+  ReactNode,
+} from "react";
 
-type Props =
-  | ({
-      href?: undefined;
-      type?: "button" | "submit" | "reset";
-      disabled?: boolean;
-    } & ButtonHTMLAttributes<HTMLButtonElement>)
-  | ({
-      href: string;
-      type?: undefined;
-      disabled?: boolean;
-    } & AnchorHTMLAttributes<HTMLAnchorElement>);
-
-type ButtonOrLinkProps = Props & {
-  children?: ReactNode;
-  variant?: "default" | "dark" | "footer";
+type Props = {
+  href?: string;
   className?: string;
-  onClick?: () => void;
-};
+  variant?: "default" | "white" | "dark" | "footer";
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  children?: ReactNode;
+} & ButtonHTMLAttributes<HTMLButtonElement> &
+  AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export default function ButtonOrLink({
-  children,
-  disabled,
-  variant = "default",
   href,
   className,
+  variant = "default",
+  disabled,
+  children,
   ...attrs
-}: ButtonOrLinkProps) {
+}: Props) {
   const btnClasses = clsx(styles.btn, styles[variant], className);
   const linkClasses = clsx(className);
 
