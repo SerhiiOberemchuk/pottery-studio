@@ -21,4 +21,8 @@
   --third-family: "Helvetica", sans-serif;
   --background: var(--white);
   --foreground: var(--black);
+  --heder-height: 5.625rem; /* 90px */
+  --container-side-padding-mobile: 1rem; /*16px */
+  --container-side-padding-tablet: 1.5rem; /* 24px */
+  --container-side-padding-desktop: 7.5rem; /* 120px */
 }

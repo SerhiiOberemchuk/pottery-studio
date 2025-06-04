@@ -1,17 +1,17 @@
 .container {
   width: 100%;
-  max-width: 80rem;
-  padding: 0 1rem;
+  max-width: 90rem;
+  padding: 0 var(--container-side-padding-mobile);
   margin: 0 auto;
 }
 @media (width>=48rem) {
   .container {
-    padding-inline: 1.5rem;
+    padding-inline: var(--container-side-padding-tablet);
   }
 }
 
-@media (width>=80rem) {
+@media (width>=90rem) {
   .container {
-    padding-inline: 5.625rem;
+    padding-inline: var(--container-side-padding-desktop);
   }
 }
