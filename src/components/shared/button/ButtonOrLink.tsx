@@ -1,49 +1,50 @@
 import Link from "next/link";
 import clsx from "clsx";
-
 import styles from "./Button.module.css";
-
 import { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "react";
 
-type ButtonProps = {
-  //кнопка
-  children?: ReactNode;
-  disabled?: boolean;
-  variant?: "default" | "dark" | "footer";
+type Props =
+  | ({
+      href?: undefined;
+      type?: "button" | "submit" | "reset";
+      disabled?: boolean;
+    } & ButtonHTMLAttributes<HTMLButtonElement>)
+  | ({
+      href: string;
+      type?: undefined;
+      disabled?: boolean;
+    } & AnchorHTMLAttributes<HTMLAnchorElement>);
 
-  //
+type ButtonOrLinkProps = Props & {
+  children?: ReactNode;
+  variant?: "default" | "dark" | "footer";
   className?: string;
-  href?: string;
-} & (
-  | (ButtonHTMLAttributes<HTMLButtonElement> & { href?: undefined })
-  | (AnchorHTMLAttributes<HTMLAnchorElement> & { href: string })
-);
+  onClick?: () => void;
+};
 
 export default function ButtonOrLink({
-  //
-  type = "button",
   children,
   disabled,
   variant = "default",
-
-  //
-
   href,
   className,
-  //   ...rest,
   ...attrs
-}: ButtonProps) {
-  const commonClasses = clsx(styles.btn, styles[variant]);
+}: ButtonOrLinkProps) {
+  const btnClasses = clsx(styles.btn, styles[variant], className);
+  const linkClasses = clsx(className);
 
   // зовнішній лінк (інший домен)
   if (href && href.startsWith("http")) {
     return (
       <a
         href={href}
-        className={commonClasses}
-        {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
+        className={btnClasses}
+        {...(attrs as AnchorHTMLAttributes<HTMLAnchorElement>)}
         target="_blank"
         rel="noopener noreferrer"
+        aria-disabled={disabled}
+        tabIndex={disabled ? -1 : undefined}
+        onClick={disabled ? (e) => e.preventDefault() : attrs.onClick}
       >
         {children}
       </a>
@@ -55,18 +56,20 @@ export default function ButtonOrLink({
     return (
       <Link
         href={href}
-        className={commonClasses}
-        {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
+        className={linkClasses}
+        {...(attrs as AnchorHTMLAttributes<HTMLAnchorElement>)}
+        aria-disabled={disabled}
+        onClick={disabled ? (e) => e.preventDefault() : attrs.onClick}
       >
         {children}
       </Link>
     );
   }
 
-  // кнопка
+  // Button
   return (
     <button
-      className={commonClasses}
+      className={btnClasses}
       disabled={disabled}
       {...(attrs as ButtonHTMLAttributes<HTMLButtonElement>)}
     >
