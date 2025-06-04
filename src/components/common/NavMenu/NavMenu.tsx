@@ -67,6 +67,18 @@ function NavLink({ href, linkName, type, onClick, pathname }: PropsLink) {
 
   return (
     <li className={styles.menu_item}>
+      {/* <ButtonOrLink
+        href={href}
+        className={clsx(
+          styles.menu_link,
+          styles[type],
+          isActive && styles.active_link,
+          "big_btns"
+        )}
+        onClick={onClick}
+      >
+        {linkName}
+      </ButtonOrLink> */}
       <Link
         href={href}
         className={clsx(
