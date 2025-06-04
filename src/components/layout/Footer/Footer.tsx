@@ -18,6 +18,7 @@ function Footer() {
               <Copyright />
             </div>
           </div>
+
           <div className={clsx(styles.footer_big)}>
             <NavMenu type="footer" />
           </div>

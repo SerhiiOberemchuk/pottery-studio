@@ -5,6 +5,9 @@
   &.mobilemenu {
     border: 1px solid var(--background-2);
   }
+  &.footer {
+    height: 100%;
+  }
 
   &.mobilemenu {
     display: block;
@@ -108,6 +111,14 @@
   .menu_link {
     &.footer {
       text-align: left;
+    }
+  }
+}
+@media (width>= 90rem) {
+  .menu_list {
+    &.footer {
+      height: 100%;
+      margin-left: 2rem;
     }
   }
 }
