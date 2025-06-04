@@ -9,7 +9,6 @@ type ButtonProps = {
   //кнопка
   children?: ReactNode;
   disabled?: boolean;
-  type?: "submit" | "reset" | "button" | undefined;
   variant?: "default" | "dark" | "footer";
 
   //
@@ -68,7 +67,6 @@ export default function ButtonOrLink({
   return (
     <button
       className={commonClasses}
-      type={type}
       disabled={disabled}
       {...(attrs as ButtonHTMLAttributes<HTMLButtonElement>)}
     >
