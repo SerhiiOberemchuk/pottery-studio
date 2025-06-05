@@ -1,8 +1,9 @@
-import styles from "./Input.module.css";
+"use client";
+import styles from "./InputPassword.module.css";
 
 import clsx from "clsx";
 
-import { InputHTMLAttributes } from "react";
+import { useState, InputHTMLAttributes } from "react";
 import { UseFormRegister, FieldErrors } from "react-hook-form";
 
 export type RegisterProps = {
@@ -24,7 +25,7 @@ export type InputProps = {
   errors: FieldErrors<RegisterProps>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-function Input(props: InputProps) {
+function InputPassword(props: InputProps) {
   const {
     id,
     name,
@@ -41,6 +42,12 @@ function Input(props: InputProps) {
 
   const error = errors[name];
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className={clsx(styles.inputWrapper)}>
       {label && (
@@ -55,7 +62,7 @@ function Input(props: InputProps) {
         id={id}
         className={clsx(styles.input, styles[`${variant}_input`], className)}
         placeholder={placeholder}
-        type={type}
+        type={showPassword ? type : "password"}
         {...register(name)}
         aria-describedby={`inputError-${name}`}
         disabled={disabled}
@@ -66,12 +73,11 @@ function Input(props: InputProps) {
           id={`inputError-${name}`}
           className={clsx(styles.inputError, "text_helper")}
         >
-          {String(error?.message)}
-          The field is required *
+          {String(error?.message)}sas
         </span>
       )}
     </div>
   );
 }
 
-export default Input;
+export default InputPassword;
