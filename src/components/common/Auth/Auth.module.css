@@ -1,0 +1,31 @@
+.auth {
+  /* padding-top: 100px; */
+}
+.header{
+    background-color: red;
+}
+.auth_inner {
+  display: grid;
+  grid-template-columns: repeat(12, 64px);
+  justify-content: space-between;
+}
+.auth_arrow {
+  grid-column: 1/1;
+  border: 1px solid red;
+}
+.auth_form {
+  padding-top: 40px;
+  border: 1px solid red;
+  grid-column: 2/6;
+}
+.auth_open_hours {
+  border: 1px solid red;
+  grid-column: 7/10;
+}
+.auth_image {
+  border: 1px solid red;
+  grid-column: 10/13;
+  img {
+    margin-left: auto;
+  }
+}

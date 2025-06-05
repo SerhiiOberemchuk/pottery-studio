@@ -31,7 +31,7 @@ type PropsLink = {
 function ActionsButton({ src, alt }: PropsLink) {
   return (
     <li className={styles.userActions_item}>
-      <ButtonOrLink type="button">
+      <ButtonOrLink href="/sign_up">
         <Image src={src} width={36} height={36} alt={alt} />
       </ButtonOrLink>
     </li>
