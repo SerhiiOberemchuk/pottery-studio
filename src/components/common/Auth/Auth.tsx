@@ -9,6 +9,8 @@ import SubtitleSection from "@/components/ui/SubtitleSection/SubtitleSection";
 import Input from "@/components/shared/form/input/Input";
 import { useForm, SubmitHandler } from "react-hook-form";
 
+import { RegisterProps } from "@/components/shared/form/input/Input";
+
 // import "../../../../public/icon/btn_arrrow_right.svg"
 
 type Props = {
@@ -23,14 +25,14 @@ function Auth({ type }: Props) {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({
+  } = useForm<RegisterProps>({
     defaultValues: {
       email: "",
     },
     mode: "onBlur",
   });
 
-  const onSubmit: SubmitHandler<{ email: string }> = (data) => {
+  const onSubmit: SubmitHandler<RegisterProps> = (data) => {
     console.log("email", data);
     reset();
   };
@@ -53,7 +55,10 @@ function Auth({ type }: Props) {
           <div className={clsx(styles.auth_form)}>
             <TitleSection>New customer</TitleSection>
             <p className="auth_form_sub_title subtitle">Create account</p>
-            <form className={clsx(styles.auth_form_field)} onSubmit={handleSubmit(onSubmit)}>
+            <form
+              className={clsx(styles.auth_form_field)}
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <Input
                 key="email"
                 id="email"

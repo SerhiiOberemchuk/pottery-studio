@@ -8,6 +8,8 @@ import { UseFormRegister, FieldErrors } from "react-hook-form";
 export type RegisterProps = {
   email?: string;
   name?: string;
+  password?: string;
+  confirmPassword?: string;
 };
 
 export type InputProps = {
