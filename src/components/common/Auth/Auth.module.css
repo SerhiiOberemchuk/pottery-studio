@@ -3,22 +3,31 @@
 }
 .auth_inner {
   display: grid;
-  grid-template-columns: repeat(12, 64px);
+  grid-template-columns: repeat(12, 1fr);
   justify-content: space-between;
+  gap: 30px;
 }
 .auth_arrow {
   grid-column: 1/1;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 .auth_form {
   padding-top: 40px;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   grid-column: 2/6;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+.privacy_policy {
+  a {
+    display: inline-block;
+    font-family: "Helvetica", sans-serif;
+    font-weight: 700;
+    line-height: 130%;
+  }
+}
 .auth_form_field {
   display: flex;
   flex-direction: column;
@@ -31,7 +40,13 @@
 .auth_image {
   border: 1px solid red;
   grid-column: 10/13;
+  position: relative;
   img {
     margin-left: auto;
+    width: 100%;
+    aspect-ratio: 252 / 312;
+    max-width: 252px;
+    max-height: 312px;
+    object-fit: cover;
   }
 }

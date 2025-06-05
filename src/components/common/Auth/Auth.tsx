@@ -123,14 +123,31 @@ function Auth({ type }: Props) {
                 className=""
                 errors={errors}
                 label={
-                  <p>
+                  <p className={clsx(styles.privacy_policy)}>
                     I have been able to read and understand the information on
-                    the use of my personal data explained in the Privacy policy*
+                    the use of my personal data explained in the{" "}
+                    <ButtonOrLink href="/">Privacy policy*</ButtonOrLink>
+                  </p>
+                }
+              />
+              <Checkbox
+                key="privacy_policy"
+                id="privacy_policy"
+                name="privacy_policy"
+                variant="auth"
+                register={register}
+                className=""
+                errors={errors}
+                label={
+                  <p className={clsx(styles.privacy_policy)}>
+                    I want to receive news and customised commercial
+                    communications from of Pottery Studio via email and other
+                    means
                   </p>
                 }
               />
               <ButtonOrLink type="submit" variant="dark">
-                submit
+                Create account
               </ButtonOrLink>
             </form>
           </div>
@@ -140,12 +157,7 @@ function Auth({ type }: Props) {
           </div>
           {/*  */}
           <div className={clsx(styles.auth_image)}>
-            <Image
-              src={"/auth/foto_little.jpg"}
-              width={252}
-              height={312}
-              alt="foto auth vaza"
-            />
+            <Image src={"/auth/foto_little.jpg"} fill alt="foto auth vaza" />
           </div>
         </div>
       </div>
