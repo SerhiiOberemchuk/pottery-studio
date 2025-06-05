@@ -6,11 +6,15 @@ import ButtonOrLink from "@/components/shared/button/ButtonOrLink";
 import Image from "next/image";
 import TitleSection from "@/components/ui/TitleSection/TitleSection";
 import SubtitleSection from "@/components/ui/SubtitleSection/SubtitleSection";
+
 import Input from "@/components/shared/form/input/Input";
 import InputPassword from "@/components/shared/form/inputPassword/InputPassword";
+import Checkbox from "@/components/shared/form/checkbjx/Checkbox";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { RegisterProps } from "@/components/shared/form/input/Input";
+import { CheckboxRegisterProps } from "@/components/shared/form/checkbjx/Checkbox";
 
 // import "../../../../public/icon/btn_arrrow_right.svg"
 
@@ -26,7 +30,7 @@ function Auth({ type }: Props) {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<RegisterProps>({
+  } = useForm<RegisterProps & CheckboxRegisterProps>({
     defaultValues: {
       email: "",
     },
@@ -108,6 +112,22 @@ function Auth({ type }: Props) {
                 className=""
                 errors={errors}
                 label="Name"
+              />
+
+              <Checkbox
+                key="privacy_policy"
+                id="privacy_policy"
+                name="privacy_policy"
+                variant="auth"
+                register={register}
+                className=""
+                errors={errors}
+                label={
+                  <p>
+                    I have been able to read and understand the information on
+                    the use of my personal data explained in the Privacy policy*
+                  </p>
+                }
               />
               <ButtonOrLink type="submit" variant="dark">
                 submit
