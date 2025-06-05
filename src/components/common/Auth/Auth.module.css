@@ -1,9 +1,6 @@
 .auth {
   /* padding-top: 100px; */
 }
-.header {
-  background-color: red;
-}
 .auth_inner {
   display: grid;
   grid-template-columns: repeat(12, 64px);
@@ -11,7 +8,7 @@
 }
 .auth_arrow {
   grid-column: 1/1;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .auth_form {
   padding-top: 40px;

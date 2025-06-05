@@ -6,6 +6,8 @@ import clsx from "clsx";
 import { useState, InputHTMLAttributes } from "react";
 import { UseFormRegister, FieldErrors } from "react-hook-form";
 
+import Image from "next/image";
+
 export type RegisterProps = {
   email?: string;
   name?: string;
@@ -68,12 +70,20 @@ function InputPassword(props: InputProps) {
         disabled={disabled}
         {...attrs}
       />
+      <button
+        type="button"
+        onClick={toggleShowPassword}
+        className={clsx(styles.eye)}
+      >
+        <Image src="/icon/icon_eye.svg" width={20} height={20} alt="eye" />
+      </button>
+
       {error && (
         <span
           id={`inputError-${name}`}
           className={clsx(styles.inputError, "text_helper")}
         >
-          {String(error?.message)}sas
+          {String(error?.message)}
         </span>
       )}
     </div>

@@ -7,6 +7,7 @@ import Image from "next/image";
 import TitleSection from "@/components/ui/TitleSection/TitleSection";
 import SubtitleSection from "@/components/ui/SubtitleSection/SubtitleSection";
 import Input from "@/components/shared/form/input/Input";
+import InputPassword from "@/components/shared/form/inputPassword/InputPassword";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { RegisterProps } from "@/components/shared/form/input/Input";
@@ -69,32 +70,33 @@ function Auth({ type }: Props) {
                 register={register}
                 className=""
                 errors={errors}
-                label="email *"
+                label="Email *"
               />
-              {/* <Input
-                key="email"
-                id="email"
-                name="email"
-                placeholder={"Написати повідомлення"}
+              <InputPassword
+                key="password"
+                id="password"
+                name="password"
+                placeholder={"Password *"}
                 variant="auth"
                 type="text"
                 register={register}
                 className=""
                 errors={errors}
-                label="email"
+                label="Password *"
               />
-              <Input
-                key="email"
-                id="email"
-                name="email"
-                placeholder={"Написати повідомлення"}
+              <InputPassword
+                key="confirmPassword"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder={"Confirm password *"}
                 variant="auth"
                 type="text"
                 register={register}
                 className=""
                 errors={errors}
-                label="email"
-              /> */}
+                label="Confirm password *"
+              />
+
               <Input
                 key="name"
                 id="name"
@@ -105,7 +107,7 @@ function Auth({ type }: Props) {
                 register={register}
                 className=""
                 errors={errors}
-                label="name"
+                label="Name"
               />
               <ButtonOrLink type="submit" variant="dark">
                 submit

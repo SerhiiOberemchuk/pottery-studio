@@ -1,4 +1,4 @@
-.inputWrapper {
+.radioWrapper {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@
     transition: 0.1s ease-in-out all;
   }
 }
-.input {
+.radio {
   /* alex */
   /* border: 1px solid red; */
   display: flex;
@@ -56,15 +56,9 @@
     }
   }
 }
-.inputError {
+.radioError {
   position: absolute;
   left: 0;
   top: 110%;
   color: var(--red);
-}
-.eye {
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
 }
