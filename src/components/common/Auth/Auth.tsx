@@ -53,17 +53,54 @@ function Auth({ type }: Props) {
           <div className={clsx(styles.auth_form)}>
             <TitleSection>New customer</TitleSection>
             <p className="auth_form_sub_title subtitle">Create account</p>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className={clsx(styles.auth_form_field)} onSubmit={handleSubmit(onSubmit)}>
+              <Input
+                key="email"
+                id="email"
+                name="email"
+                placeholder={"Email *"}
+                variant="auth"
+                type="text"
+                register={register}
+                className=""
+                errors={errors}
+                label="email *"
+              />
+              {/* <Input
+                key="email"
+                id="email"
+                name="email"
+                placeholder={"Написати повідомлення"}
+                variant="auth"
+                type="text"
+                register={register}
+                className=""
+                errors={errors}
+                label="email"
+              />
               <Input
                 key="email"
                 id="email"
                 name="email"
                 placeholder={"Написати повідомлення"}
-                variant="footer"
+                variant="auth"
                 type="text"
                 register={register}
                 className=""
                 errors={errors}
+                label="email"
+              /> */}
+              <Input
+                key="name"
+                id="name"
+                name="name"
+                placeholder={"Name"}
+                variant="auth"
+                type="text"
+                register={register}
+                className=""
+                errors={errors}
+                label="name"
               />
               <ButtonOrLink type="submit" variant="dark">
                 submit

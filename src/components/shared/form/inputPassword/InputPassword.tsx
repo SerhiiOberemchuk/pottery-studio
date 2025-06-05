@@ -5,21 +5,16 @@ import clsx from "clsx";
 import { InputHTMLAttributes } from "react";
 import { UseFormRegister, FieldErrors } from "react-hook-form";
 
-export type RegisterProps = {
-  email?: string;
-  name?: string;
-};
-
 export type InputProps = {
   id?: string;
-  name: keyof RegisterProps;
+  name: string;
   label?: string;
-  variant?: "default" | "search" | "footer" | "auth";
+  variant?: "default" | "auth";
   placeholder: string;
   type?: string;
-  register: UseFormRegister<RegisterProps>;
+  register: UseFormRegister<{ email: string }>; // alex
   className?: string;
-  errors: FieldErrors<RegisterProps>;
+  errors: FieldErrors;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 function Input(props: InputProps) {
