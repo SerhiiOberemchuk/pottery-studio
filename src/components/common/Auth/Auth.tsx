@@ -5,38 +5,20 @@ import clsx from "clsx";
 import Arrow from "./Arrow/Arow";
 import Form from "./Form/Form";
 import OpenHours from "./OpenHours/OpenHours";
+import useAuth from "./useAuth";
 
 import Image from "next/image";
 
-function Auth(type: "signUp" | "logIn" | "forgotPassword" | "resetPassword") {
-  console.log("Auth", type);
-
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   reset,
-  //   formState: { errors },
-  // } = useForm<RegisterProps & CheckboxRegisterProps>({
-  //   defaultValues: {
-  //     email: "",
-  //   },
-  //   mode: "onBlur",
-  // });
-
-  // const onSubmit: SubmitHandler<RegisterProps> = (data) => {
-  //   console.log("email", data);
-  //   reset();
-  // };
+function Auth(type: "signUp" | "logIn") {
+  const props = useAuth(type);
 
   return (
     <div className={clsx(styles.auth)}>
       <div className="container">
         <div className={clsx(styles.auth_inner)}>
           <Arrow />
-          <Form />
+          <Form {...props} />
           <OpenHours />
-
-          {/*  */}
           <div className={clsx(styles.auth_image)}>
             <Image src={"/auth/foto_little.jpg"} fill alt="foto auth vaza" />
           </div>

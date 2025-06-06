@@ -1,4 +1,10 @@
-import { useForm, SubmitHandler } from "react-hook-form";
+'use client'
+import {
+  SubmitHandler,
+  UseFormRegister,
+  UseFormHandleSubmit,
+  FieldErrors,
+} from "react-hook-form";
 
 import styles from "./Form.module.css";
 import clsx from "clsx";
@@ -15,24 +21,14 @@ import Link from "next/link";
 import { RegisterProps } from "@/components/shared/form/input/Input";
 import { CheckboxRegisterProps } from "@/components/shared/form/checkbjx/Checkbox";
 
-function Form() {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<RegisterProps & CheckboxRegisterProps>({
-    defaultValues: {
-      email: "",
-    },
-    mode: "onBlur",
-  });
+type FormProps = {
+  register: UseFormRegister<RegisterProps & CheckboxRegisterProps>;
+  handleSubmit: UseFormHandleSubmit<RegisterProps & CheckboxRegisterProps>;
+  errors: FieldErrors<RegisterProps & CheckboxRegisterProps>;
+  onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps>;
+};
 
-  const onSubmit: SubmitHandler<RegisterProps> = (data) => {
-    console.log("email", data);
-    reset();
-  };
-
+function Form({ register, handleSubmit, errors, onSubmit }: FormProps) {
   return (
     <div className={clsx(styles.auth_form)}>
       <TitleSection>New customer</TitleSection>

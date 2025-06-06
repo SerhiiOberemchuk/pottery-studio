@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { RegisterProps } from "@/components/shared/form/input/Input";
@@ -7,7 +7,7 @@ import { CheckboxRegisterProps } from "@/components/shared/form/checkbjx/Checkbo
 
 // type: "signUp" | "logIn" | "forgotPassword" | "resetPassword"
 
-function useAuth(type: "signUp") {
+function useAuth(type: "signUp" | "logIn") {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const formConfigs = useMemo(() => {
@@ -21,13 +21,21 @@ function useAuth(type: "signUp") {
           privacyPolicy: false,
           news: false,
         },
-        schema: SignUpSchema,
+      },
+      logIn: {
+        defaultValues: {
+          email: "",
+          password: "",
+          confirmPassword: "",
+          name: "",
+          privacyPolicy: false,
+          news: false,
+        },
       },
     };
   }, []);
 
-  const initsSchema = formConfigs[type].schema;
-  const initDefaultValues = formConfigs[type].defaultValues;
+  const initDefaultValues = formConfigs[type]?.defaultValues;
 
   const {
     register,
@@ -35,9 +43,8 @@ function useAuth(type: "signUp") {
     reset,
     watch,
     formState: { errors },
-  } = useForm<z.infer<typeof initsSchema>>({
+  } = useForm<RegisterProps & CheckboxRegisterProps>({
     defaultValues: initDefaultValues,
-    resolver: zodResolver(initsSchema),
     mode: "onBlur",
   });
 
@@ -63,9 +70,11 @@ function useAuth(type: "signUp") {
     }
   }, [watch, type]);
 
-  const onSubmit: SubmitHandler<RegisterProps> = (data) => {
+  const onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps> = (
+    data
+  ) => {
     console.log("isLoading", isLoading);
-    console.log("email", data);
+    console.log("data", data);
     reset();
   };
   console.log(type);

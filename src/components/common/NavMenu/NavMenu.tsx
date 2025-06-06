@@ -63,7 +63,7 @@ type PropsLink = {
 function NavLink({ href, linkName, type, onClick, pathname }: PropsLink) {
   const isActive: boolean = pathname === href;
 
-  if (type === "mobilemenu" && href === "/") return null;
+  if (type === "footer" && href === "/") return null;
 
   return (
     <li className={styles.menu_item}>
