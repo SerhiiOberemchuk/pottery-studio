@@ -1,0 +1,27 @@
+.auth_open_hours {
+  border: 1px solid red;
+  grid-column: 7/10;
+  height: 592px;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  margin-bottom: 20px;
+}
+.auth_week_list {
+  margin-top: auto;
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.auth_week_item {
+  display: flex;
+  gap: 9px;
+  line-height: 137%;
+  color: #454545;
+  p:first-child {
+    font-weight: 700;
+  }
+}

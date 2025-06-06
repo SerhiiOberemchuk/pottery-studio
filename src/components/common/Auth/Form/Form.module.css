@@ -1,0 +1,35 @@
+.auth_form {
+  padding-top: 40px;
+  border: 1px solid red;
+  grid-column: 2/6;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  input {
+    margin-bottom: 9px;
+  }
+}
+
+.form_checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.privacy_policy {
+  a {
+    display: inline-block;
+    font-family: "Helvetica", sans-serif;
+    font-weight: 700;
+    line-height: 130%;
+  }
+}
+.auth_form_field {
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+}
+.auth_social_buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
