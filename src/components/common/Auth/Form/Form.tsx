@@ -93,9 +93,9 @@ function Form() {
 
         <div className={clsx(styles.form_checkbox)}>
           <Checkbox
-            key="privacy_policy"
-            id="privacy_policy"
-            name="privacy_policy"
+            key="privacyPolicy"
+            id="privacyPolicy"
+            name="privacyPolicy"
             variant="auth"
             register={register}
             className=""

@@ -5,7 +5,7 @@ import { UseFormRegister, FieldErrors } from "react-hook-form";
 import Image from "next/image";
 
 export type CheckboxRegisterProps = {
-  privacy_policy?: string;
+  privacyPolicy?: string;
   news?: string;
 };
 

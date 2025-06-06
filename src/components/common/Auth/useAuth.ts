@@ -5,9 +5,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { RegisterProps } from "@/components/shared/form/input/Input";
 import { CheckboxRegisterProps } from "@/components/shared/form/checkbjx/Checkbox";
 
-function useAuth(
-  type: "signUp" | "logIn" | "forgotPassword" | "resetPassword"
-) {
+// type: "signUp" | "logIn" | "forgotPassword" | "resetPassword"
+
+function useAuth(type: "signUp") {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const formConfigs = useMemo(() => {
@@ -17,29 +17,11 @@ function useAuth(
           email: "",
           password: "",
           confirmPassword: "",
-          terms: false,
+          name: "",
+          privacyPolicy: false,
+          news: false,
         },
         schema: SignUpSchema,
-      },
-      logIn: {
-        defaultValues: {
-          email: "",
-          password: "",
-        },
-        schema: LogInSchema,
-      },
-      forgotPassword: {
-        defaultValues: {
-          email: "",
-        },
-        schema: ForgotPasswordSchema,
-      },
-      resetPassword: {
-        defaultValues: {
-          password: "",
-          confirmPassword: "",
-        },
-        schema: ResetPasswordSchema,
       },
     };
   }, []);
@@ -63,22 +45,18 @@ function useAuth(
     const emailWatch = watch("email");
     const passwordWatch = watch("password");
     const confirmPasswordWatch = watch("confirmPassword");
-    const termsWatch = watch("terms");
+    const nameWatch = watch("name");
+    const privacyPolicyWatch = watch("privacyPolicy");
 
     switch (type) {
       case "signUp":
         return (
-          !emailWatch || !passwordWatch || !confirmPasswordWatch || !termsWatch
+          !emailWatch ||
+          !passwordWatch ||
+          !confirmPasswordWatch ||
+          !nameWatch ||
+          !privacyPolicyWatch
         );
-
-      case "logIn":
-        return !emailWatch || !passwordWatch;
-
-      case "forgotPassword":
-        return !emailWatch;
-
-      case "resetPassword":
-        return !passwordWatch || !confirmPasswordWatch;
 
       default:
         return false;
@@ -86,6 +64,7 @@ function useAuth(
   }, [watch, type]);
 
   const onSubmit: SubmitHandler<RegisterProps> = (data) => {
+    console.log("isLoading", isLoading);
     console.log("email", data);
     reset();
   };
