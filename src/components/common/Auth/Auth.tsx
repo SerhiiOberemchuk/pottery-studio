@@ -10,6 +10,7 @@ import SubtitleSection from "@/components/ui/SubtitleSection/SubtitleSection";
 import Input from "@/components/shared/form/input/Input";
 import InputPassword from "@/components/shared/form/inputPassword/InputPassword";
 import Checkbox from "@/components/shared/form/checkbjx/Checkbox";
+import Separator from "@/components/shared/separator/Separatop";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 
@@ -131,9 +132,9 @@ function Auth({ type }: Props) {
                 }
               />
               <Checkbox
-                key="privacy_policy"
-                id="privacy_policy"
-                name="privacy_policy"
+                key="news"
+                id="news"
+                name="news"
                 variant="auth"
                 register={register}
                 className=""
@@ -150,6 +151,30 @@ function Auth({ type }: Props) {
                 Create account
               </ButtonOrLink>
             </form>
+            {/*  */}
+            <Separator />
+            {/*  */}
+            <div className={clsx(styles.auth_social_buttons)}>
+              <ButtonOrLink type="button" variant="white">
+                <Image
+                  src={"/icon/icon_google.svg"}
+                  width={28}
+                  height={28}
+                  alt="Google"
+                />
+                <span>Log in with Google</span>
+              </ButtonOrLink>
+
+              <ButtonOrLink type="button" variant="white">
+                <Image
+                  src={"/icon/icon_facebook.svg"}
+                  width={28}
+                  height={28}
+                  alt="Google"
+                />
+                <span>Log in with Facebook</span>
+              </ButtonOrLink>
+            </div>
           </div>
           <div className={clsx(styles.auth_open_hours)}>
             <SubtitleSection>Working hours</SubtitleSection>

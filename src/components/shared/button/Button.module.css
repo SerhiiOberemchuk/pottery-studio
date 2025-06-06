@@ -16,6 +16,7 @@
   line-height: 129%;
   color: var(--black);
   transition: 0.3s ease-in-out all;
+  gap: 0.625em;;
 
   &.white {
     border: 1px solid var(--stroke);

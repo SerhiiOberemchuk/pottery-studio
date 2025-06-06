@@ -1,0 +1,20 @@
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* text */
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid #454545;
+  }
+}
+.separator_text {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 114%;
+  margin: 0 6.5px;
+  color: var(--grey-dark);
+}
