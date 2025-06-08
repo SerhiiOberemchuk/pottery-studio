@@ -43,7 +43,7 @@ function Promotions() {
           className=""
           errors={errors}
         />
-        <ButtonOrLink type="submit" variant="footer">
+        <ButtonOrLink type="submit" variant="footer" className="body_text_btns">
           submit
         </ButtonOrLink>
       </form>

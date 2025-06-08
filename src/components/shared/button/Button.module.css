@@ -10,13 +10,10 @@
   cursor: pointer;
   outline: none;
   background: transparent;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 129%;
+
   color: var(--black);
   transition: 0.3s ease-in-out all;
-  gap: 0.625em;;
+  gap: 0.625em;
 
   &.white {
     border: 1px solid var(--stroke);

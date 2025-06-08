@@ -63,3 +63,13 @@
   top: 110%;
   color: var(--red);
 }
+
+@media (width<= 80rem) {
+  .input {
+    &.auth_input {
+      padding: 12px 20px;
+      font-size: 10px;
+      line-height: 120%;
+    }
+  }
+}

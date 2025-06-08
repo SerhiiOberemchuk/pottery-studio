@@ -123,7 +123,9 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
               label="Password *"
             />
             {isLogInPage ? (
-              <div className={clsx(styles.auth_form_forgot_link, "text_helper")}>
+              <div
+                className={clsx(styles.auth_form_forgot_link, "text_helper")}
+              >
                 <Link href="/forgot_password">Forgot password?</Link>
                 <span>* required</span>
               </div>
@@ -204,17 +206,17 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
           </div>
         ) : null}
 
-        <ButtonOrLink type="submit" variant="dark">
+        <ButtonOrLink type="submit" variant="dark" className="body_text_btns">
           {buttonTitle()}
         </ButtonOrLink>
       </form>
 
       {isLogInPage || isSignUpPage ? (
         <>
-          <Separator />
+          <Separator/>
 
           <div className={clsx(styles.auth_social_buttons)}>
-            <ButtonOrLink type="button" variant="white">
+            <ButtonOrLink type="button" variant="white" className="big_btns">
               <Image
                 src={"/icon/icon_google.svg"}
                 width={28}
@@ -224,7 +226,7 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
               <span>Log in with Google</span>
             </ButtonOrLink>
 
-            <ButtonOrLink type="button" variant="white">
+            <ButtonOrLink type="button" variant="white" className="big_btns">
               <Image
                 src={"/icon/icon_facebook.svg"}
                 width={28}

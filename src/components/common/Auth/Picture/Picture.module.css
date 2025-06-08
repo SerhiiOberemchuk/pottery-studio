@@ -1,17 +1,19 @@
-.auth_image {
+.auth_picture {
   grid-column: 10/13;
-  position: relative;
-  img {
-    margin-left: auto;
-    width: 100%;
-    aspect-ratio: 252 / 312;
-    max-width: 252px;
-    max-height: 312px;
-    object-fit: cover;
-  }
 }
+.auth_picture_img {
+  margin-left: auto;
+  position: static !important;
+  height: auto !important;
+  width: 100%;
+  aspect-ratio: 252 / 312;
+  max-width: 252px;
+  object-fit: contain;
+}
+
 .auth_image_btn {
-  position: absolute;
+  margin-left: auto;
+  margin-top: 49px;
   display: flex;
   flex-direction: column;
   gap: 12px;
