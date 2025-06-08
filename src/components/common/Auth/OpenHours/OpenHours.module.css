@@ -3,7 +3,7 @@
   height: 604px;
   display: flex;
   flex-direction: column;
-  &.isLogIn{
+  &.isLogIn {
     height: 550px;
   }
 }
@@ -21,9 +21,5 @@
 .auth_week_item {
   display: flex;
   gap: 9px;
-  line-height: 137%;
   color: #454545;
-  p:first-child {
-    font-weight: 700;
-  }
 }

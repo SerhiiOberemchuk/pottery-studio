@@ -30,7 +30,7 @@
   /* border: 1px solid red; */
   display: flex;
   width: 100%;
-  font-size: 16px;
+  /* font-size: 16px; */
   padding: 12px 20px;
   color: var(--black);
   /*  */
@@ -49,9 +49,9 @@
   }
   /*  */
   &.footer_input {
-    font-size: 12px;
-    line-height: 133%;
     background: var(--white);
+    padding: 11px 20px;
+
     &::placeholder {
       color: var(--grey-dark);
     }
@@ -68,8 +68,6 @@
   .input {
     &.auth_input {
       padding: 12px 20px;
-      font-size: 10px;
-      line-height: 120%;
     }
   }
 }

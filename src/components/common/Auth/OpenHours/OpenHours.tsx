@@ -38,8 +38,10 @@ function OpenHours({ isLogIn }: Props) {
           <ul className={clsx(styles.auth_week_list)}>
             {Object.entries(businessHours).map(([day, hours]) => (
               <li key={day} className={clsx(styles.auth_week_item)}>
-                <p className={clsx(styles.auth_week_day)}>{day}:</p>
-                <p className={clsx(styles.auth_week_hours)}>{hours}</p>
+                <p className={clsx(styles.auth_week_day, "body_bold")}>
+                  {day}:
+                </p>
+                <p className={clsx(styles.auth_week_hours, "body_text_btns")}>{hours}</p>
               </li>
             ))}
           </ul>

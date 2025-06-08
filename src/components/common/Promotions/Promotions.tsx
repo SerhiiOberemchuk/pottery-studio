@@ -40,7 +40,7 @@ function Promotions() {
           variant="footer"
           type="text"
           register={register}
-          className=""
+          className="big_btns"
           errors={errors}
         />
         <ButtonOrLink type="submit" variant="footer" className="body_text_btns">
