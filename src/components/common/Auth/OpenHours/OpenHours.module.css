@@ -20,6 +20,12 @@
 
 .auth_week_item {
   display: flex;
-  gap: 9px;
+  gap: 4px 9px;
   color: #454545;
+}
+
+@media (width<= 80rem) {
+  .auth_week_item {
+    flex-direction: column;
+  }
 }

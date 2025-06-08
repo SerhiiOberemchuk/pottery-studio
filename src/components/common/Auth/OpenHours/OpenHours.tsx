@@ -45,7 +45,7 @@ function OpenHours({ isLogIn }: Props) {
               </li>
             ))}
           </ul>
-          <ButtonOrLink href="/open_hours" variant="white">
+          <ButtonOrLink href="/open_hours" variant="white" className="body_text_btns">
             more info
           </ButtonOrLink>
         </>

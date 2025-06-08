@@ -7,6 +7,8 @@
   justify-content: space-between;
   gap: 30px;
 }
-
-
-
+@media (width<= 80rem) {
+  .auth_inner {
+    gap: 22px;
+  }
+}

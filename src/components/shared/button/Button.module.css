@@ -65,3 +65,9 @@
     color: var(--white);
   }
 }
+
+@media (width<= 90rem) {
+  .btn {
+    height: 40px;
+  }
+}

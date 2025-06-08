@@ -7,11 +7,11 @@
   gap: 20px;
 }
 .auth_form_sub_title {
-  &.forgotPassword,
+  /* &.forgotPassword,
   &.resetPassword {
     font-style: normal;
     font-size: 14px;
-  }
+  } */
 }
 .auth_form_forgot_link {
   display: flex;
@@ -50,6 +50,8 @@
   flex-direction: column;
   gap: 12px;
 }
+
+
 @media (width<= 80rem) {
   .auth_form {
     border: 1px solid blue;
@@ -68,7 +70,7 @@
     gap: 8px;
     &.forgotPassword,
     &.resetPassword {
-      gap: 1rem;
+      gap: 8px;
     }
   }
   .auth_social_buttons {

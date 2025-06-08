@@ -102,7 +102,7 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
             variant="auth"
             type="text"
             register={register}
-            className=""
+            className="body_2"
             errors={errors}
             label="Email *"
           />
@@ -118,7 +118,7 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
               variant="auth"
               type="text"
               register={register}
-              className=""
+              className="body_2"
               errors={errors}
               label="Password *"
             />
@@ -142,7 +142,7 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
             variant="auth"
             type="text"
             register={register}
-            className=""
+            className="body_2"
             errors={errors}
             label="Confirm password *"
           />
@@ -157,7 +157,7 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
             variant="auth"
             type="text"
             register={register}
-            className=""
+            className="body_2"
             errors={errors}
             label="Name"
           />
@@ -213,7 +213,7 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
 
       {isLogInPage || isSignUpPage ? (
         <>
-          <Separator/>
+          <Separator />
 
           <div className={clsx(styles.auth_social_buttons)}>
             <ButtonOrLink type="button" variant="white" className="big_btns">
