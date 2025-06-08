@@ -21,8 +21,8 @@ function Auth({ type }: AuthProps) {
         <div className={clsx(styles.auth_inner)}>
           <Arrow />
           <Form type={type} {...props} />
-          <OpenHours />
-          <Picture />
+          <OpenHours isLogIn={type === "logIn" }/>
+          <Picture isLogIn={type === "logIn" }/>
         </div>
       </div>
     </div>

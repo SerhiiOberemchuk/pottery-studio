@@ -1,5 +1,4 @@
 .auth_image {
-  border: 1px solid red;
   grid-column: 10/13;
   position: relative;
   img {
@@ -10,4 +9,14 @@
     max-height: 312px;
     object-fit: cover;
   }
+}
+.auth_image_btn {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 252px;
+  width: 100%;
+  top: 362px;
+  right: 0px;
 }

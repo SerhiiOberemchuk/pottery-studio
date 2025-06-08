@@ -209,7 +209,7 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
         </ButtonOrLink>
       </form>
 
-      {!isForgotPasswordPage ? (
+      {isLogInPage || isSignUpPage ? (
         <>
           <Separator />
 
