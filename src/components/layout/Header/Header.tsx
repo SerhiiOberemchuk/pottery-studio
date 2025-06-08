@@ -9,7 +9,7 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className="container">
-        <div className={styles.header__inner}>
+        <div className={styles.header_inner}>
           <Logo type="header" />
           <NavMenu type="header" />
           <UserActions />

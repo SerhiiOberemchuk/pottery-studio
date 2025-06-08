@@ -34,7 +34,7 @@ function NavMenu({ className = "", type, onClick }: Props) {
 
   return (
     <nav className={clsx(styles.menu, styles[type], styles[className])}>
-      <ul className={clsx(styles.menu__list, styles[type])}>
+      <ul className={clsx(styles.menu_list, styles[type])}>
         {linksNavMenu.map((link) => (
           <NavLink
             key={link.href}
@@ -66,13 +66,25 @@ function NavLink({ href, linkName, type, onClick, pathname }: PropsLink) {
   if (type === "mobilemenu" && href === "/") return null;
 
   return (
-    <li className={styles.menu__item}>
+    <li className={styles.menu_item}>
+      {/* <ButtonOrLink
+        href={href}
+        className={clsx(
+          styles.menu_link,
+          styles[type],
+          isActive && styles.active_link,
+          "big_btns"
+        )}
+        onClick={onClick}
+      >
+        {linkName}
+      </ButtonOrLink> */}
       <Link
         href={href}
         className={clsx(
-          styles.menu__link,
+          styles.menu_link,
           styles[type],
-          isActive && styles.active__link,
+          isActive && styles.active_link,
           "big_btns"
         )}
         onClick={onClick}

@@ -12,7 +12,7 @@ export type InputProps = {
   variant?: "default" | "search" | "footer";
   placeholder: string;
   type?: string;
-  register: UseFormRegister<{ email: string }>;
+  register: UseFormRegister<{ email: string }>; // alex
   className?: string;
   errors: FieldErrors;
 } & InputHTMLAttributes<HTMLInputElement>;
@@ -42,7 +42,7 @@ function Input(props: InputProps) {
         className={clsx(styles.input, styles[variant], className)}
         placeholder={placeholder}
         type={type}
-        {...register("email")}
+        {...register(name as "email")}
         aria-describedby={`inputError-${name}`}
         disabled={disabled}
         {...attrs}
