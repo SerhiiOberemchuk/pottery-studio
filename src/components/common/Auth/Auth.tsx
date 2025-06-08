@@ -5,11 +5,14 @@ import clsx from "clsx";
 import Arrow from "./Arrow/Arow";
 import Form from "./Form/Form";
 import OpenHours from "./OpenHours/OpenHours";
+import Picture from "./Picture/Picture";
 import useAuth from "./useAuth";
 
-import Image from "next/image";
+type AuthProps = {
+  type: "signUp" | "logIn" | "forgotPassword" | "resetPassword";
+};
 
-function Auth(type: "signUp" | "logIn") {
+function Auth({ type }: AuthProps) {
   const props = useAuth(type);
 
   return (
@@ -17,11 +20,9 @@ function Auth(type: "signUp" | "logIn") {
       <div className="container">
         <div className={clsx(styles.auth_inner)}>
           <Arrow />
-          <Form {...props} />
+          <Form type={type} {...props} />
           <OpenHours />
-          <div className={clsx(styles.auth_image)}>
-            <Image src={"/auth/foto_little.jpg"} fill alt="foto auth vaza" />
-          </div>
+          <Picture />
         </div>
       </div>
     </div>

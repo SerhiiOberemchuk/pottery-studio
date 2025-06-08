@@ -1,14 +1,18 @@
 "use client";
 import { useState, useMemo, useCallback } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 import { RegisterProps } from "@/components/shared/form/input/Input";
 import { CheckboxRegisterProps } from "@/components/shared/form/checkbjx/Checkbox";
 
 // type: "signUp" | "logIn" | "forgotPassword" | "resetPassword"
 
-function useAuth(type: "signUp" | "logIn") {
+function useAuth(
+  type: "signUp" | "logIn" | "forgotPassword" | "resetPassword"
+) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const router = useRouter();
 
   const formConfigs = useMemo(() => {
     return {
@@ -30,6 +34,17 @@ function useAuth(type: "signUp" | "logIn") {
           name: "",
           privacyPolicy: false,
           news: false,
+        },
+      },
+      forgotPassword: {
+        defaultValues: {
+          email: "",
+        },
+      },
+      resetPassword: {
+        defaultValues: {
+          password: "",
+          confirmPassword: "",
         },
       },
     };
@@ -75,9 +90,12 @@ function useAuth(type: "signUp" | "logIn") {
   ) => {
     console.log("isLoading", isLoading);
     console.log("data", data);
+    if (type === "forgotPassword") {
+      alert("forgot password Succes");
+      router.push("/reset_password");
+    }
     reset();
   };
-  console.log(type);
   return {
     register,
     handleSubmit,

@@ -1,7 +1,7 @@
 .auth_open_hours {
   border: 1px solid red;
   grid-column: 7/10;
-  height: 592px;
+  height: 604px;
   display: flex;
   flex-direction: column;
 }

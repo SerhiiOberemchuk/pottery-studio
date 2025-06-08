@@ -1,0 +1,13 @@
+.auth_image {
+  border: 1px solid red;
+  grid-column: 10/13;
+  position: relative;
+  img {
+    margin-left: auto;
+    width: 100%;
+    aspect-ratio: 252 / 312;
+    max-width: 252px;
+    max-height: 312px;
+    object-fit: cover;
+  }
+}

@@ -41,6 +41,7 @@
     font-size: 14px;
     line-height: 114%;
     color: var(--black);
+    padding: 13px 20px;
     border: 1px solid #b6afaf;
     &::placeholder {
       color: var(--grey-dark);
