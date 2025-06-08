@@ -29,3 +29,21 @@
     flex-direction: column;
   }
 }
+@media (width<= 660px) {
+  .auth_open_hours {
+    margin-top: 20px;
+    height: auto;
+    &.isLogIn {
+      height: auto;
+    }
+  }
+  .title {
+    margin-bottom: 0px;
+  }
+  .auth_week_list {
+    margin-top: 20px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+}

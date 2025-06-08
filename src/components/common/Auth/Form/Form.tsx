@@ -171,7 +171,7 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
               name={isSignUpPage ? "privacyPolicy" : "rememberMe"}
               variant="auth"
               register={register}
-              className=""
+              className="text_helper"
               errors={errors}
               label={
                 <p className={clsx(styles.privacy_policy)}>
@@ -192,7 +192,7 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
                 name="news"
                 variant="auth"
                 register={register}
-                className=""
+                className="text_helper"
                 errors={errors}
                 label={
                   <p className={clsx(styles.privacy_policy)}>

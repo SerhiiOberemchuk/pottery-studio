@@ -1,14 +1,18 @@
-.auth {
-  /* padding-top: 100px; */
-}
 .auth_inner {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   justify-content: space-between;
   gap: 30px;
 }
-@media (width<= 80rem) {
+@media (width<= 796px) {
   .auth_inner {
     gap: 22px;
+  }
+}
+@media (width<= 660px) {
+  .auth_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 }
