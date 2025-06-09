@@ -31,9 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${openSans.variable} ${fanwoodText.variable}`}>
-        <Header />
+        {/* <Header /> */}
         <main>{children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
