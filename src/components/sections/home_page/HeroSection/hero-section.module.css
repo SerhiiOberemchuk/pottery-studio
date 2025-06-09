@@ -23,7 +23,7 @@
   object-fit: cover;
 }
 .hero_image_container {
-  align-items: flex-end;
+  align-items: end;
   display: flex;
   gap: 1rem;
   justify-content: space-between;
@@ -45,7 +45,7 @@
   width: 100%;
   flex-direction: column;
   gap: 1.25rem;
-  justify-content: flex-end;
+  justify-content: end;
 }
 .hiden_from_tablet {
   @media (width>=48rem) {
@@ -60,7 +60,7 @@
 }
 .litle_foto_container {
   display: flex;
-  justify-items: flex-end;
+  justify-items: end;
   gap: 1rem;
 }
 .titles_container {
