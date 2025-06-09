@@ -88,12 +88,14 @@ function useAuth(
   const onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps> = (
     data
   ) => {
+    setIsLoading(true);
     console.log("isLoading", isLoading);
     console.log("data", data);
     if (type === "forgotPassword") {
       alert("forgot password Succes");
       router.push("/reset_password");
     }
+    setIsLoading(false);
     reset();
   };
   return {
@@ -102,6 +104,7 @@ function useAuth(
     reset,
     errors,
     onSubmit,
+    isCleanInputsForm,
   };
 }
 
