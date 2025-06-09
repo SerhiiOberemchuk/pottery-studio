@@ -28,7 +28,6 @@ export default function ButtonOrLink({
   ...attrs
 }: Props) {
   const btnClasses = clsx(styles.btn, styles[variant], className);
-  const linkClasses = clsx(className);
 
   // зовнішній лінк (інший домен)
   if (href && href.startsWith("http")) {
@@ -53,7 +52,7 @@ export default function ButtonOrLink({
     return (
       <Link
         href={href}
-        className={linkClasses}
+        className={btnClasses}
         {...(attrs as AnchorHTMLAttributes<HTMLAnchorElement>)}
         aria-disabled={disabled}
         onClick={disabled ? (e) => e.preventDefault() : attrs.onClick}

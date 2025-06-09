@@ -1,10 +1,13 @@
 "use client";
 import styles from "./Promotions.module.css";
+import clsx from "clsx";
+
+import { useForm, SubmitHandler } from "react-hook-form";
 
 import Input from "../../shared/form/input/Input";
 import ButtonOrLink from "@/components/shared/button/ButtonOrLink";
-import { useForm, SubmitHandler } from "react-hook-form";
-import clsx from "clsx";
+
+import { RegisterProps } from "../../shared/form/input/Input";
 
 function Promotions() {
   const {
@@ -12,14 +15,14 @@ function Promotions() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({
+  } = useForm<RegisterProps>({
     defaultValues: {
       email: "",
     },
     mode: "onBlur",
   });
 
-  const onSubmit: SubmitHandler<{ email: string }> = (data) => {
+  const onSubmit: SubmitHandler<RegisterProps> = (data) => {
     console.log("email", data);
     reset();
   };
@@ -37,10 +40,10 @@ function Promotions() {
           variant="footer"
           type="text"
           register={register}
-          className=""
+          className="big_btns"
           errors={errors}
         />
-        <ButtonOrLink type="submit" variant="footer">
+        <ButtonOrLink type="submit" variant="footer" className="body_text_btns">
           submit
         </ButtonOrLink>
       </form>

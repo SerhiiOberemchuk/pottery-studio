@@ -1,0 +1,47 @@
+.auth_picture {
+  grid-column: 10/13;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth_picture_img {
+  position: static !important;
+  width: 100%;
+  max-width: 18rem;
+  object-fit: contain;
+  order: 1;
+
+  @media (width>= 48rem) {
+    margin-left: auto;
+    position: static !important;
+    height: auto !important;
+    width: 100%;
+    aspect-ratio: 252 / 312;
+    max-width: 15.75rem;
+    object-fit: contain;
+    order: 0;
+  }
+}
+.auth_image_btn {
+  margin: 0;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 48rem;
+  width: 100%;
+  top: 22.6rem;
+  right: 0px;
+
+  @media (width>= 48rem) {
+    margin-left: auto;
+    margin-top: 3.06rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 15.75rem;
+    width: 100%;
+    top: 22.6rem;
+    right: 0px;
+  }
+}
