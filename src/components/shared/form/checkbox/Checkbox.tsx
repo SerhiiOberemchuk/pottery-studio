@@ -80,7 +80,7 @@ function Checkbox(props: CheckboxProps) {
       {error && (
         <span
           id={`checkboxError-${name}`}
-          className={clsx(styles.inputError, "text_helper")}
+          className={clsx(styles.checkboxError, "text_helper")}
         >
           {String(error?.message)}
         </span>
