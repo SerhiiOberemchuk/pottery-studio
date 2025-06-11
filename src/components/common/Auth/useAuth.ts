@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
 
 import { RegisterProps } from "@/components/shared/form/input/Input";
-import { CheckboxRegisterProps } from "@/components/shared/form/checkbjx/Checkbox";
+import { CheckboxRegisterProps } from "@/components/shared/form/checkbox/Checkbox";
 
 // type: "signUp" | "logIn" | "forgotPassword" | "resetPassword"
 

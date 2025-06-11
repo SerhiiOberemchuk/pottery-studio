@@ -3,7 +3,7 @@ import styles from "./Input.module.css";
 import clsx from "clsx";
 
 import { InputHTMLAttributes } from "react";
-import { UseFormRegister, FieldErrors } from "react-hook-form";
+import { UseFormRegister, nameErrors } from "react-hook-form";
 
 export type RegisterProps = {
   email?: string;
@@ -21,7 +21,7 @@ export type InputProps = {
   type?: string;
   register: UseFormRegister<RegisterProps>;
   className?: string;
-  errors: FieldErrors<RegisterProps>;
+  errors: nameErrors<RegisterProps>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 function Input(props: InputProps) {
@@ -56,7 +56,25 @@ function Input(props: InputProps) {
         className={clsx(styles.input, styles[`${variant}_input`], className)}
         placeholder={placeholder}
         type={type}
-        {...register(name)}
+        {...register(name, {
+          ...(name === "email" && {
+            required: "Це поле обов'язкове",
+            pattern: {
+              value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+              message: "Невірний email формат",
+            },
+          }),
+          ...(name === "name" && {
+            minLength: {
+              value: 2,
+              message: "Ім'я повинно містити щонайменше 2 символи",
+            },
+            maxLength: {
+              value: 20,
+              message: "Ім'я повинно містити не більше 20 символів",
+            },
+          }),
+        })}
         aria-describedby={`inputError-${name}`}
         disabled={disabled}
         {...attrs}
@@ -67,7 +85,6 @@ function Input(props: InputProps) {
           className={clsx(styles.inputError, "text_helper")}
         >
           {String(error?.message)}
-          The field is required *
         </span>
       )}
     </div>

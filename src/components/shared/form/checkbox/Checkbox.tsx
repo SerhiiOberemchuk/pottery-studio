@@ -45,7 +45,15 @@ function Checkbox(props: CheckboxProps) {
           className
         )}
         type="checkbox"
-        {...register(name)}
+        {...register(name, {
+          ...(name === "privacyPolicy" && {
+            required: "Це поле обов'язкове *",
+            pattern: {
+              value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+              message: "Надайте згоду",
+            },
+          }),
+        })}
         aria-describedby={`checkboxError-${name}`}
         disabled={disabled}
         {...attrs}

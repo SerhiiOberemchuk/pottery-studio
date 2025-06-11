@@ -12,14 +12,14 @@ import clsx from "clsx";
 import TitleSection from "@/components/ui/TitleSection/TitleSection";
 import Input from "@/components/shared/form/input/Input";
 import InputPassword from "@/components/shared/form/inputPassword/InputPassword";
-import Checkbox from "@/components/shared/form/checkbjx/Checkbox";
+import Checkbox from "@/components/shared/form/checkbox/Checkbox";
 import ButtonOrLink from "@/components/shared/button/ButtonOrLink";
 import Separator from "@/components/shared/separator/Separatop";
 import Image from "next/image";
 import Link from "next/link";
 
 import { RegisterProps } from "@/components/shared/form/input/Input";
-import { CheckboxRegisterProps } from "@/components/shared/form/checkbjx/Checkbox";
+import { CheckboxRegisterProps } from "@/components/shared/form/checkbox/Checkbox";
 
 type FormProps = {
   register: UseFormRegister<RegisterProps & CheckboxRegisterProps>;
