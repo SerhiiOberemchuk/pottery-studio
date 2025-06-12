@@ -3,7 +3,7 @@ function Contacts() {
   return (
     <section className="about">
       <div className="container">
-        <div className="about__inner">Contacts</div>
+        <div className="about_inner">Contacts</div>
       </div>
     </section>
   );

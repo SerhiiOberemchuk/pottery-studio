@@ -1,0 +1,8 @@
+.mobile_menu {
+  z-index: 40;
+}
+@media (width>= 48rem) {
+  .mobile_menu {
+    display: none;
+  }
+}

@@ -7,9 +7,10 @@
   backdrop-filter: blur(4px);
   border-bottom: 1px solid var(--background-2);
 }
-.header__inner {
+.header_inner {
   display: flex;
   justify-content: space-between;
   padding: 8px 0;
   align-items: center;
+  height: var(--heder-height);
 }

@@ -1,9 +1,11 @@
-import styles from "./page.module.css";
+import AboutSection from "@/components/sections/home_page/AboutSection/AboutSection";
+import HeroSection from "@/components/sections/home_page/HeroSection/HeroSection";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <h1>Main Page</h1>
-    </div>
+    <>
+      <HeroSection />
+      <AboutSection />
+    </>
   );
 }
