@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Open_Sans, Fanwood_Text } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header/Header";
-import Footer from "@/components/layout/Footer/Footer";
 
 const openSans = Open_Sans({
   variable: "--font-family",
@@ -31,9 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${openSans.variable} ${fanwoodText.variable}`}>
-        <Header />
         <main>{children}</main>
-        <Footer />
+        {/* {children} */}
       </body>
     </html>
   );
