@@ -19,6 +19,7 @@ import { RegisterProps } from "@/components/shared/form/input/Input";
 export interface AuthStateProps {
   user: UserProps | null;
   logIn: ({ email, password }: RegisterProps) => Promise<void>;
+  tokens: AuthTokensProps | null;
   isLoggedIn: boolean;
   error: string | null;
 }
@@ -32,10 +33,18 @@ export const useAuthStore = create<AuthStateProps>((set) => ({
         email,
         password,
       });
-      console.log("+++", response.data);
+      const { access_token, refresh_token } = response.data;
+      set({
+        tokens: { access_token, refresh_token },
+        isLoggedIn: true,
+      });
     } catch (error: unknown) {
       console.log("ПОМИЛКА ", error);
-      set({ user: null });
+      set({
+        user: null,
+        isLoggedIn: false,
+        error: "Login failed",
+      });
     }
   },
 
@@ -43,10 +52,3 @@ export const useAuthStore = create<AuthStateProps>((set) => ({
   isLoggedIn: false,
   error: null,
 }));
-
-// export const useStore = create((set) => ({
-//   bears: 0,
-//   increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-//   removeAllBears: () => set({ bears: 0 }),
-//   updateBears: (newBears) => set({ bears: newBears }),
-// }));
