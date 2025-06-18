@@ -26,10 +26,18 @@ type FormProps = {
   handleSubmit: UseFormHandleSubmit<RegisterProps & CheckboxRegisterProps>;
   errors: FieldErrors<RegisterProps & CheckboxRegisterProps>;
   onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps>;
+  isLoading: boolean;
   type: "signUp" | "logIn" | "forgotPassword" | "resetPassword";
 };
 
-function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
+function Form({
+  register,
+  handleSubmit,
+  errors,
+  onSubmit,
+  isLoading,
+  type,
+}: FormProps) {
   const isSignUpPage = type === "signUp";
   const isLogInPage = type === "logIn";
   const isForgotPasswordPage = type === "forgotPassword";
@@ -206,7 +214,12 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
           </div>
         ) : null}
 
-        <ButtonOrLink type="submit" variant="dark" className="body_text_btns">
+        <ButtonOrLink
+          type="submit"
+          variant="dark"
+          className="body_text_btns"
+          disabled={isLoading}
+        >
           {buttonTitle()}
         </ButtonOrLink>
       </form>

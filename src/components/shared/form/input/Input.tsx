@@ -3,7 +3,7 @@ import styles from "./Input.module.css";
 import clsx from "clsx";
 
 import { InputHTMLAttributes } from "react";
-import { UseFormRegister} from "react-hook-form";
+import { UseFormRegister, FieldErrors } from "react-hook-form";
 
 export type RegisterProps = {
   email?: string;
@@ -21,7 +21,7 @@ export type InputProps = {
   type?: string;
   register: UseFormRegister<RegisterProps>;
   className?: string;
-  errors: nameErrors<RegisterProps>;
+  errors: FieldErrors<RegisterProps>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 function Input(props: InputProps) {

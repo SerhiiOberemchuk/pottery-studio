@@ -7,6 +7,8 @@ import { RegisterProps } from "@/components/shared/form/input/Input";
 import { CheckboxRegisterProps } from "@/components/shared/form/checkbox/Checkbox";
 
 // type: "signUp" | "logIn" | "forgotPassword" | "resetPassword"
+// alex
+import { useAuthStore } from "@/store/user-store";
 
 function useAuth(
   type: "signUp" | "logIn" | "forgotPassword" | "resetPassword"
@@ -85,19 +87,56 @@ function useAuth(
     }
   }, [watch, type]);
 
-  const onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps> = (
-    data
-  ) => {
-    setIsLoading(true);
-    console.log("isLoading", isLoading);
-    console.log("data", data);
-    if (type === "forgotPassword") {
-      alert("forgot password Succes");
-      router.push("/reset_password");
-    }
-    setIsLoading(false);
-    reset();
-  };
+  const { logIn } = useAuthStore();
+
+  // const onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps> = async (
+  //   data
+  // ) => {
+
+  //   setIsLoading(true);
+
+  //   const {
+  //     email,
+  //     password = "",
+  //     confirmPassword = "",
+  //     name = "",
+  //     privacyPolicy = false,
+  //     news = false,
+  //   } = data;
+
+  //   if (email && password) {
+  //     logIn(email, password);
+  //   }
+
+  //   if (type === "forgotPassword") {
+  //     alert("forgot password Succes");
+  //     router.push("/reset_password");
+  //   }
+  //   setIsLoading(false);
+  //   reset();
+  // };
+
+  const onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps> =
+    useCallback(async (data) => {
+      setIsLoading(true);
+      try {
+        switch (type) {
+          case "logIn":
+            if ("email" in data && "password" in data) {
+              return await logIn({email:data.email, password:data.password});
+            }
+            throw new Error("Missing email or password for sign-up or login");
+          default:
+            throw new Error("Unknown form type");
+        }
+      } catch (error) {
+        console.error("Submission failed:", error);
+      } finally {
+        reset();
+        setIsLoading(false);
+      }
+    });
+
   return {
     register,
     handleSubmit,
@@ -105,6 +144,7 @@ function useAuth(
     errors,
     onSubmit,
     isCleanInputsForm,
+    isLoading,
   };
 }
 

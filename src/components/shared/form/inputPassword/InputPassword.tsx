@@ -72,7 +72,10 @@ function InputPassword(props: InputProps) {
           ...((name === "password" || name === "confirmPassword") && {
             pattern: {
               value:
-                /^(?=[^A-Z]*[A-Z][^A-Z]*$)(?=(?:[^0-9]*[0-9]){5,10}[^0-9]*$)[A-Z0-9]{6,11}$/,
+                // Potterry Studio
+                // /^(?=[^A-Z]*[A-Z][^A-Z]*$)(?=(?:[^0-9]*[0-9]){5,10}[^0-9]*$)[A-Z0-9]{6,11}$/,
+                // job-tarccker
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])(?=\S)[A-Za-z\d!@#$%^&*]{8,}$/,
               message: "Невірний формат паролю",
             },
           }),
