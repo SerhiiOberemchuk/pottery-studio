@@ -8,12 +8,7 @@ import { UseFormRegister, FieldErrors, UseFormWatch } from "react-hook-form";
 
 import Image from "next/image";
 
-export type RegisterProps = {
-  email?: string;
-  name?: string;
-  password?: string;
-  confirmPassword?: string;
-};
+import { RegisterProps } from "../input/Input";
 
 export type InputProps = {
   id?: string;
