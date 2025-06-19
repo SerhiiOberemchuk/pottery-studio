@@ -39,11 +39,11 @@ export const useAuthStore = create<AuthStateProps>((set) => ({
         isLoggedIn: true,
       });
     } catch (error: unknown) {
-      console.log("ПОМИЛКА ", error);
+      const message = error instanceof Error ? error.message : "Login failed";
       set({
         user: null,
         isLoggedIn: false,
-        error: "Login failed",
+        error: message,
       });
     }
   },
