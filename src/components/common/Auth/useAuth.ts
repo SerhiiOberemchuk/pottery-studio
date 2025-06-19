@@ -86,7 +86,7 @@ function useAuth(
     }
   }, [watch, type]);
 
-  const { logIn } = useAuthStore();
+  const { logIn, } = useAuthStore();
 
   const onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps> =
     useCallback(
