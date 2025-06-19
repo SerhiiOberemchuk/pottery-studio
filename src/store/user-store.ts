@@ -21,6 +21,8 @@ import { RegisterProps } from "@/components/shared/form/input/Input";
 export interface AuthStateProps {
   user: UserProps | null;
   logIn: ({ email, password }: RegisterProps) => Promise<void>;
+  logOut: () => Promise<void>;
+  signUp: ({ email, password }: RegisterProps) => Promise<void>;
   tokens: AuthTokensProps | null;
   isLoggedIn: boolean;
   error: string | null;
@@ -70,6 +72,7 @@ export const useAuthStore = create<AuthStateProps>()(
       },
 
       signUp: async ({ email, password }: RegisterProps): Promise<void> => {
+        console.log("si")
         try {
           const response = await api.post("/auth/register", {
             email,

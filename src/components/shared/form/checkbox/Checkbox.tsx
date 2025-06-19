@@ -47,11 +47,7 @@ function Checkbox(props: CheckboxProps) {
         type="checkbox"
         {...register(name, {
           ...(name === "privacyPolicy" && {
-            required: "Це поле обов'язкове *",
-            pattern: {
-              value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-              message: "Надайте згоду",
-            },
+            validate: (v) => v === true || "Потрібна згода",
           }),
         })}
         aria-describedby={`checkboxError-${name}`}

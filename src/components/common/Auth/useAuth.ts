@@ -31,10 +31,7 @@ function useAuth(
         defaultValues: {
           email: "",
           password: "",
-          confirmPassword: "",
-          name: "",
-          privacyPolicy: false,
-          news: false,
+          rememberMe: false,
         },
       },
       forgotPassword: {
@@ -86,7 +83,7 @@ function useAuth(
     }
   }, [watch, type]);
 
-  const { logIn, } = useAuthStore();
+  const { signUp, logIn } = useAuthStore();
 
   const onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps> =
     useCallback(
@@ -95,11 +92,19 @@ function useAuth(
         try {
           switch (type) {
             case "logIn":
+            case "signUp":
               if ("email" in data && "password" in data) {
-                await logIn({
-                  email: data.email,
-                  password: data.password,
-                });
+                if (type === "signUp") {
+                  await signUp({
+                    email: data.email,
+                    password: data.password,
+                  });
+                } else {
+                  await logIn({
+                    email: data.email,
+                    password: data.password,
+                  });
+                }
                 break;
               }
               throw new Error("Missing email or password for sign-up or login");
@@ -116,7 +121,7 @@ function useAuth(
         reset();
         setIsLoading(false);
       },
-      [logIn, type, reset, router]
+      [signUp, logIn, type, reset, router]
     );
 
   return {
@@ -127,6 +132,7 @@ function useAuth(
     onSubmit,
     isCleanInputsForm,
     isLoading,
+    watch,
   };
 }
 

@@ -37,6 +37,7 @@ function Form({
   onSubmit,
   isLoading,
   type,
+  watch,
 }: FormProps) {
   const isSignUpPage = type === "signUp";
   const isLogInPage = type === "logIn";
@@ -153,6 +154,7 @@ function Form({
             className="body_2"
             errors={errors}
             label="Confirm password *"
+            watch={watch}
           />
         ) : null}
 
