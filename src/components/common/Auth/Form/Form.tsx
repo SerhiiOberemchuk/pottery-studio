@@ -3,6 +3,7 @@ import {
   SubmitHandler,
   UseFormRegister,
   UseFormHandleSubmit,
+  UseFormWatch,
   FieldErrors,
 } from "react-hook-form";
 
@@ -28,6 +29,7 @@ type FormProps = {
   onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps>;
   isLoading: boolean;
   type: "signUp" | "logIn" | "forgotPassword" | "resetPassword";
+  watch?: UseFormWatch<RegisterProps>;
 };
 
 function Form({
