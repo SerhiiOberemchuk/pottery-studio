@@ -4,16 +4,11 @@ import styles from "./InputPassword.module.css";
 import clsx from "clsx";
 
 import { useState, InputHTMLAttributes } from "react";
-import { UseFormRegister, FieldErrors } from "react-hook-form";
+import { UseFormRegister, FieldErrors, UseFormWatch } from "react-hook-form";
 
 import Image from "next/image";
 
-export type RegisterProps = {
-  email?: string;
-  name?: string;
-  password?: string;
-  confirmPassword?: string;
-};
+import { RegisterProps } from "../input/Input";
 
 export type InputProps = {
   id?: string;
@@ -25,6 +20,7 @@ export type InputProps = {
   register: UseFormRegister<RegisterProps>;
   className?: string;
   errors: FieldErrors<RegisterProps>;
+  watch?: UseFormWatch<RegisterProps>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 function InputPassword(props: InputProps) {
@@ -39,6 +35,7 @@ function InputPassword(props: InputProps) {
     className,
     errors,
     disabled,
+    watch,
     ...attrs
   } = props;
 
@@ -65,7 +62,26 @@ function InputPassword(props: InputProps) {
         className={clsx(styles.input, styles[`${variant}_input`], className)}
         placeholder={placeholder}
         type={showPassword ? type : "password"}
-        {...register(name)}
+        {...register(name, {
+          required: "Це поле обов'язкове",
+          ...((name === "password" || name === "confirmPassword") && {
+            pattern: {
+              value:
+                // Potterry Studio
+                // /^(?=[^A-Z]*[A-Z][^A-Z]*$)(?=(?:[^0-9]*[0-9]){5,10}[^0-9]*$)[A-Z0-9]{6,11}$/,
+                // job-tarccker
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])(?=\S)[A-Za-z\d!@#$%^&*]{8,}$/,
+              message: "Невірний формат паролю",
+            },
+          }),
+          ...(name === "confirmPassword" &&
+            watch && {
+              validate: (value) => {
+                const password = watch("password");
+                return value === password || "Паролі не збігаються";
+              },
+            }),
+        })}
         aria-describedby={`inputError-${name}`}
         disabled={disabled}
         {...attrs}

@@ -4,9 +4,10 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
 
 import { RegisterProps } from "@/components/shared/form/input/Input";
-import { CheckboxRegisterProps } from "@/components/shared/form/checkbjx/Checkbox";
+import { CheckboxRegisterProps } from "@/components/shared/form/checkbox/Checkbox";
 
-// type: "signUp" | "logIn" | "forgotPassword" | "resetPassword"
+// alex
+import { useAuthStore } from "@/store/user-store";
 
 function useAuth(
   type: "signUp" | "logIn" | "forgotPassword" | "resetPassword"
@@ -30,10 +31,7 @@ function useAuth(
         defaultValues: {
           email: "",
           password: "",
-          confirmPassword: "",
-          name: "",
-          privacyPolicy: false,
-          news: false,
+          rememberMe: false,
         },
       },
       forgotPassword: {
@@ -85,19 +83,47 @@ function useAuth(
     }
   }, [watch, type]);
 
-  const onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps> = (
-    data
-  ) => {
-    setIsLoading(true);
-    console.log("isLoading", isLoading);
-    console.log("data", data);
-    if (type === "forgotPassword") {
-      alert("forgot password Succes");
-      router.push("/reset_password");
-    }
-    setIsLoading(false);
-    reset();
-  };
+  const { signUp, logIn } = useAuthStore();
+
+  const onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps> =
+    useCallback(
+      async (data) => {
+        setIsLoading(true);
+        try {
+          switch (type) {
+            case "logIn":
+            case "signUp":
+              if ("email" in data && "password" in data) {
+                if (type === "signUp") {
+                  await signUp({
+                    email: data.email,
+                    password: data.password,
+                  });
+                } else {
+                  await logIn({
+                    email: data.email,
+                    password: data.password,
+                  });
+                }
+                break;
+              }
+              throw new Error("Missing email or password for sign-up or login");
+            case "forgotPassword":
+              alert("forgot password Succes");
+              router.push("/reset_password");
+              break;
+            default:
+              throw new Error("Unknown form type");
+          }
+        } catch (error) {
+          console.error("Submission failed:", error);
+        }
+        reset();
+        setIsLoading(false);
+      },
+      [signUp, logIn, type, reset, router]
+    );
+
   return {
     register,
     handleSubmit,
@@ -105,6 +131,8 @@ function useAuth(
     errors,
     onSubmit,
     isCleanInputsForm,
+    isLoading,
+    watch,
   };
 }
 

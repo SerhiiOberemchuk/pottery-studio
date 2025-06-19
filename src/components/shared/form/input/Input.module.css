@@ -60,7 +60,7 @@
 .inputError {
   position: absolute;
   left: 0;
-  top: 110%;
+  top: 100%;
   color: var(--red);
 }
 

@@ -1,9 +1,9 @@
-/* @media (prefers-color-scheme: dark) {
-  :root {
+@media (prefers-color-scheme: dark) {
+  /* :root {
     --background: var(--black);
     --foreground: var(--white);
-  }
-} */
+  } */
+}
 
 html,
 body {

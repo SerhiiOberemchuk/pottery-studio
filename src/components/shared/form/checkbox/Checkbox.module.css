@@ -38,3 +38,9 @@
 .checkbox:checked ~ .checkmark {
   opacity: 1;
 }
+.checkboxError {
+  position: absolute;
+  top: 90%;
+  left: 1.75rem;
+  color: var(--red);
+}
