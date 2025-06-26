@@ -3,6 +3,7 @@ import {
   SubmitHandler,
   UseFormRegister,
   UseFormHandleSubmit,
+  UseFormWatch,
   FieldErrors,
 } from "react-hook-form";
 
@@ -12,24 +13,34 @@ import clsx from "clsx";
 import TitleSection from "@/components/ui/TitleSection/TitleSection";
 import Input from "@/components/shared/form/input/Input";
 import InputPassword from "@/components/shared/form/inputPassword/InputPassword";
-import Checkbox from "@/components/shared/form/checkbjx/Checkbox";
+import Checkbox from "@/components/shared/form/checkbox/Checkbox";
 import ButtonOrLink from "@/components/shared/button/ButtonOrLink";
 import Separator from "@/components/shared/separator/Separatop";
 import Image from "next/image";
 import Link from "next/link";
 
 import { RegisterProps } from "@/components/shared/form/input/Input";
-import { CheckboxRegisterProps } from "@/components/shared/form/checkbjx/Checkbox";
+import { CheckboxRegisterProps } from "@/components/shared/form/checkbox/Checkbox";
 
 type FormProps = {
   register: UseFormRegister<RegisterProps & CheckboxRegisterProps>;
   handleSubmit: UseFormHandleSubmit<RegisterProps & CheckboxRegisterProps>;
   errors: FieldErrors<RegisterProps & CheckboxRegisterProps>;
   onSubmit: SubmitHandler<RegisterProps & CheckboxRegisterProps>;
+  isLoading: boolean;
   type: "signUp" | "logIn" | "forgotPassword" | "resetPassword";
+  watch?: UseFormWatch<RegisterProps>;
 };
 
-function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
+function Form({
+  register,
+  handleSubmit,
+  errors,
+  onSubmit,
+  isLoading,
+  type,
+  watch,
+}: FormProps) {
   const isSignUpPage = type === "signUp";
   const isLogInPage = type === "logIn";
   const isForgotPasswordPage = type === "forgotPassword";
@@ -145,6 +156,7 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
             className="body_2"
             errors={errors}
             label="Confirm password *"
+            watch={watch}
           />
         ) : null}
 
@@ -206,7 +218,12 @@ function Form({ register, handleSubmit, errors, onSubmit, type }: FormProps) {
           </div>
         ) : null}
 
-        <ButtonOrLink type="submit" variant="dark" className="body_text_btns">
+        <ButtonOrLink
+          type="submit"
+          variant="dark"
+          className="body_text_btns"
+          disabled={isLoading}
+        >
           {buttonTitle()}
         </ButtonOrLink>
       </form>

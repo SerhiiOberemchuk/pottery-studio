@@ -45,7 +45,11 @@ function Checkbox(props: CheckboxProps) {
           className
         )}
         type="checkbox"
-        {...register(name)}
+        {...register(name, {
+          ...(name === "privacyPolicy" && {
+            validate: (v) => v === true || "Потрібна згода",
+          }),
+        })}
         aria-describedby={`checkboxError-${name}`}
         disabled={disabled}
         {...attrs}
@@ -72,7 +76,7 @@ function Checkbox(props: CheckboxProps) {
       {error && (
         <span
           id={`checkboxError-${name}`}
-          className={clsx(styles.inputError, "text_helper")}
+          className={clsx(styles.checkboxError, "text_helper")}
         >
           {String(error?.message)}
         </span>
